@@ -10,9 +10,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
-              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
               <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -407,9 +405,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 bg-emerald-600 rounded flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-white" />
-                </div>
+                <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
                 <span className="font-semibold text-gray-900">Sooryathejus Group</span>
               </div>
               <p className="text-gray-600 text-sm mb-4">
