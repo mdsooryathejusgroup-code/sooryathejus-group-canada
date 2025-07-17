@@ -63,6 +63,7 @@ export default function ServicesPage() {
               Comprehensive business solutions designed to help Canadian companies thrive in today's competitive
               marketplace.
             </p>
+            <Link href="/services#services">
             <Button
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
@@ -70,12 +71,13 @@ export default function ServicesPage() {
               Explore Our Services
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Core Services */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-gray-50" id ="services">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Services</h2>
@@ -269,9 +271,11 @@ export default function ServicesPage() {
             Let's discuss how our comprehensive business services can help you achieve your goals and drive sustainable
             growth.
           </p>
+          <Link href="/contact#message">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
             Schedule Free Consultation
           </Button>
+          </Link>
         </div>
       </section>
     </div>

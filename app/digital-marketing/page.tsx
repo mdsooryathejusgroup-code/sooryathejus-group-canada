@@ -225,9 +225,11 @@ export default function DigitalMarketingPage() {
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our digital marketing expertise can help your business reach new heights.
           </p>
+          <Link href="/contact#message">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
             Get Free Consultation
           </Button>
+          </Link>
         </div>
       </section>
     </div>

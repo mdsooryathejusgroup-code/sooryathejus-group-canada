@@ -120,7 +120,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form - Right Side */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3" id="message">
               <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
                 <form className="space-y-4">
@@ -235,12 +235,14 @@ export default function ContactPage() {
             you succeed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Link href="/contact#message">
             <Button
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
             >
               Schedule Free Consultation
             </Button>
+            </Link>
             <Button
               variant="outline"
               size="lg"

@@ -64,6 +64,7 @@ export default function RealEstatePage() {
               Your trusted partner in Canadian real estate. From residential to commercial properties, we provide
               comprehensive solutions for all your real estate needs.
             </p>
+            <Link href="/real-estate#properties">
             <Button
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
@@ -71,6 +72,7 @@ export default function RealEstatePage() {
               Explore Properties
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -83,7 +85,7 @@ export default function RealEstatePage() {
             <p className="text-lg text-gray-600">Comprehensive solutions for all your property needs</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="properties">
             {[
               {
                 icon: Home,
@@ -243,9 +245,11 @@ export default function RealEstatePage() {
             Whether you're buying, selling, or investing, our real estate experts are here to guide you every step of
             the way.
           </p>
+          <Link href="/contact#message">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
             Schedule Consultation
           </Button>
+          </Link>
         </div>
       </section>
     </div>

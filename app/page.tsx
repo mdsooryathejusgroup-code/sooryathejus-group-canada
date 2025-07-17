@@ -57,6 +57,7 @@ export default function HomePage() {
               real estate services, and comprehensive business consulting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/contact#message">
               <Button
                 size="lg"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
@@ -64,6 +65,8 @@ export default function HomePage() {
                 Schedule Consultation
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
+              </Link>
+              <Link href="/#ourwork">
               <Button
                 variant="outline"
                 size="lg"
@@ -71,6 +74,7 @@ export default function HomePage() {
               >
                 View Our Work
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -88,7 +92,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8" id="ourwork" >
             {/* Feature 1 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -366,6 +370,7 @@ export default function HomePage() {
               Join hundreds of successful Canadian businesses who trust Sooryathejus Group for their growth needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact#message">
               <Button
                 size="lg"
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
@@ -373,6 +378,7 @@ export default function HomePage() {
                 <Phone className="mr-2 w-4 h-4" />
                 Schedule Free Consultation
               </Button>
+              </Link>
               <Button
                 variant="outline"
                 size="lg"
