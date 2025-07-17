@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import FooterSection from "@/components/footer"
 import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
+import { Footer } from "react-day-picker"
 
 export default function HomePage() {
   return (
@@ -402,91 +404,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-12 px-6">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 bg-emerald-600 rounded flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-white" />
-                </div>
-                <span className="font-semibold text-gray-900">Sooryathejus Group</span>
-              </div>
-              <p className="text-gray-600 text-sm mb-4">
-                Canada's trusted partner for digital marketing, real estate, and business solutions.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p>Toronto, Ontario, Canada</p>
-                <p>info@sooryathejusgroup.ca</p>
-                <p>+1 (416) 123-4567</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/digital-marketing" className="hover:text-emerald-600 transition-colors">
-                    Digital Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/real-estate" className="hover:text-emerald-600 transition-colors">
-                    Real Estate
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="hover:text-emerald-600 transition-colors">
-                    Business Services
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-emerald-600 transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
-            <p>© 2025 Sooryathejus Group. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
     </div>
   )
 }
