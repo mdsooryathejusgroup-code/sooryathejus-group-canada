@@ -2,7 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
-  Building2,
   Search,
   Share2,
   BarChart3,
@@ -23,9 +22,7 @@ export default function DigitalMarketingPage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
               <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
@@ -230,9 +227,11 @@ export default function DigitalMarketingPage() {
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our digital marketing expertise can help your business reach new heights.
           </p>
+          <Link href="/contact#message">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
             Get Free Consultation
           </Button>
+          </Link>
         </div>
       </section>
             <FooterSection />
