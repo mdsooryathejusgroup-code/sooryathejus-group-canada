@@ -13,10 +13,9 @@ export default function FooterSection() {
       {/* Left Section */}
       <div>
         <div className="flex items-center space-x-2 mb-4">
-          <div className="w-6 h-6 bg-emerald-600 rounded flex items-center justify-center">
-            <Building2 className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-semibold text-gray-900">Sooryathejus Group</span>
+                <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
+                <span className="font-semibold text-gray-900">Sooryathejus Group</span>
+          
         </div>
         <p className="text-gray-600 text-sm mb-4">
           Canada's trusted partner for digital marketing, real estate, and business solutions.
