@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Target,
 } from "lucide-react"
+import FooterSection from "@/components/footer"
 
 export default function ServicesPage() {
   return (
@@ -278,6 +279,9 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+
+            <FooterSection />
+      
     </div>
   )
 }

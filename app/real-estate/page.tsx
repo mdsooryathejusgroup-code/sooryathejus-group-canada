@@ -12,6 +12,8 @@ import {
   CheckCircle,
   DollarSign,
 } from "lucide-react"
+import FooterSection from "@/components/footer"
+
 
 export default function RealEstatePage() {
   return (
@@ -252,6 +254,8 @@ export default function RealEstatePage() {
           </Link>
         </div>
       </section>
+            <FooterSection />
+
     </div>
   )
 }
