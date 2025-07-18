@@ -12,6 +12,8 @@ import {
   CheckCircle,
   DollarSign,
 } from "lucide-react"
+import FooterSection from "@/components/footer"
+
 
 export default function RealEstatePage() {
   return (
@@ -21,9 +23,7 @@ export default function RealEstatePage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
               <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
@@ -66,26 +66,28 @@ export default function RealEstatePage() {
               Your trusted partner in Canadian real estate. From residential to commercial properties, we provide
               comprehensive solutions for all your real estate needs.
             </p>
+            <Link href="/real-estate#properties">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Explore Properties
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-24 px-6 bg-gray-50 ">
+        <div className="container mx-auto ">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Real Estate Services</h2>
             <p className="text-lg text-gray-600">Comprehensive solutions for all your property needs</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="properties">
             {[
               {
                 icon: Home,
@@ -201,7 +203,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6 bg-emerald-600">
+      <section className="py-24 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Why Choose Our Real Estate Services?</h2>
@@ -245,11 +247,15 @@ export default function RealEstatePage() {
             Whether you're buying, selling, or investing, our real estate experts are here to guide you every step of
             the way.
           </p>
-          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
+          <Link href="/contact#message">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Consultation
           </Button>
+          </Link>
         </div>
       </section>
+            <FooterSection />
+
     </div>
   )
 }

@@ -2,7 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
-  Building2,
   Briefcase,
   Users,
   FileText,
@@ -12,6 +11,7 @@ import {
   CheckCircle,
   Target,
 } from "lucide-react"
+import FooterSection from "@/components/footer"
 
 export default function ServicesPage() {
   return (
@@ -21,9 +21,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
               <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
@@ -66,19 +64,21 @@ export default function ServicesPage() {
               Comprehensive business solutions designed to help Canadian companies thrive in today's competitive
               marketplace.
             </p>
+            <Link href="/services#services">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Explore Our Services
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Core Services */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 bg-gray-50" id ="services">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Services</h2>
@@ -189,7 +189,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Process */}
-      <section className="py-24 px-6 bg-emerald-600">
+      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Service Process</h2>
@@ -272,11 +272,16 @@ export default function ServicesPage() {
             Let's discuss how our comprehensive business services can help you achieve your goals and drive sustainable
             growth.
           </p>
-          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
+          <Link href="/contact#message">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Free Consultation
           </Button>
+          </Link>
         </div>
       </section>
+
+            <FooterSection />
+      
     </div>
   )
 }

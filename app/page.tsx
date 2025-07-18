@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import FooterSection from "@/components/footer"
 import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
+import { Footer } from "react-day-picker"
 
 export default function HomePage() {
   return (
@@ -10,9 +12,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
-              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
               <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -59,20 +59,23 @@ export default function HomePage() {
               real estate services, and comprehensive business consulting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/contact#message">
               <Button
                 size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Schedule Consultation
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
+              </Link>
+              <Link href="/#ourwork">
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-md font-medium bg-transparent"
-              >
+                 className="border-gray-300 text-gray-700 hover:border-emerald-600 px-8 py-3 rounded-md font-medium bg-transparent transition-colors duration-300 transform hover:scale-105"              >
                 View Our Work
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -90,7 +93,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8" id="ourwork" >
             {/* Feature 1 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -176,7 +179,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 px-6 bg-emerald-600">
+      <section className="py-16 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Trusted by Industry Leaders</h2>
@@ -368,18 +371,21 @@ export default function HomePage() {
               Join hundreds of successful Canadian businesses who trust Sooryathejus Group for their growth needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact#message">
               <Button
                 size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transform hover:scale-105"
               >
                 <Phone className="mr-2 w-4 h-4" />
                 Schedule Free Consultation
               </Button>
+              </Link>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3 rounded-md font-medium bg-transparent"
-              >
+                className="relative px-8 py-3 rounded-md font-semibold border-2 border-white text-white bg-transparent shadow-lg transition-all duration-300
+                  hover:bg-emerald-600  hover:text-white hover:shadow-2xl hover:scale-105"
+                >        
                 View Case Studies
               </Button>
             </div>
@@ -401,92 +407,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-12 px-6">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 bg-emerald-600 rounded flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-white" />
-                </div>
-                <span className="font-semibold text-gray-900">Sooryathejus Group</span>
-              </div>
-              <p className="text-gray-600 text-sm mb-4">
-                Canada's trusted partner for digital marketing, real estate, and business solutions.
-              </p>
-              <div className="text-sm text-gray-500">
-                <p>Toronto, Ontario, Canada</p>
-                <p>info@sooryathejusgroup.ca</p>
-                <p>+1 (416) 123-4567</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/digital-marketing" className="hover:text-emerald-600 transition-colors">
-                    Digital Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/real-estate" className="hover:text-emerald-600 transition-colors">
-                    Real Estate
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="hover:text-emerald-600 transition-colors">
-                    Business Services
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-emerald-600 transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-emerald-600 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
-            <p>© 2025 Sooryathejus Group. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+                 <FooterSection />
+     
     </div>
   )
 }
