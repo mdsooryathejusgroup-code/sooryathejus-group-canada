@@ -257,7 +257,7 @@ export default function ContactPage() {
             <Link href="/contact#message">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Schedule Free Consultation
             </Button>
@@ -265,8 +265,9 @@ export default function ContactPage() {
             <Button
               variant="outline"
               size="lg"
-              className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3 rounded-md font-medium bg-transparent"
-            >
+              className="relative px-8 py-3 rounded-md font-semibold border-2 border-white text-white bg-transparent shadow-lg transition-all duration-300
+                hover:bg-emerald-600  hover:text-white hover:shadow-2xl hover:scale-105"
+              >            
               Call Now
             </Button>
           </div>

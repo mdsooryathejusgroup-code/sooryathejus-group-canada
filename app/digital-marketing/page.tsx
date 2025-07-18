@@ -62,7 +62,7 @@ export default function DigitalMarketingPage() {
             </p>
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Start Your Campaign
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -226,7 +226,7 @@ export default function DigitalMarketingPage() {
             Let's discuss how our digital marketing expertise can help your business reach new heights.
           </p>
           <Link href="/contact#message">
-          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Get Free Consultation
           </Button>
           </Link>

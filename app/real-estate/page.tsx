@@ -67,7 +67,7 @@ export default function RealEstatePage() {
             <Link href="/real-estate#properties">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Explore Properties
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -78,8 +78,8 @@ export default function RealEstatePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-24 px-6 bg-gray-50 ">
+        <div className="container mx-auto ">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Real Estate Services</h2>
             <p className="text-lg text-gray-600">Comprehensive solutions for all your property needs</p>
@@ -246,7 +246,7 @@ export default function RealEstatePage() {
             the way.
           </p>
           <Link href="/contact#message">
-          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Consultation
           </Button>
           </Link>
