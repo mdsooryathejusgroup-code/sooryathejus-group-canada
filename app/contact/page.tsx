@@ -76,12 +76,13 @@ export default function ContactPage() {
                   {
                     icon: MapPin,
                     title: "Visit Us",
-                    details: "123 Business Street, Toronto, ON M5V 3A8",
+                    details: "90 Burnhamthorpe Rd W 14 th floor Suite :1412, Mississauga, ON L5B 0H9, Canada",
+                    link:"https://maps.app.goo.gl/aoNzEo2dELw31EVZ9?g_st=iwb",
                   },
                   {
                     icon: Phone,
                     title: "Call Us",
-                    details: "+1 (416) 123-4567",
+                    details: "+1 289-374-6421",
                   },
                   {
                     icon: Mail,
@@ -91,23 +92,41 @@ export default function ContactPage() {
                   {
                     icon: Clock,
                     title: "Business Hours",
-                    details: "Mon-Fri: 9AM-6PM, Sat: 10AM-4PM",
+                    details: "Mon-Fri: 11AM-5PM",
                   },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group"
-                  >
-                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <item.icon className="w-5 h-5 text-emerald-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-1">{item.title}</h3>
-                      <p className="text-gray-600 text-sm">{item.details}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                ].map((item, index) =>
+                    item.link ? (
+                      <a
+                        key={index}
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group"
+                      >
+                        <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <item.icon className="w-5 h-5 text-emerald-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-gray-900 text-sm mb-1">{item.title}</h3>
+                          <p className="text-gray-600 text-sm">{item.details}</p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div
+                        key={index}
+                        className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group"
+                      >
+                        <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <item.icon className="w-5 h-5 text-emerald-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-gray-900 text-sm mb-1">{item.title}</h3>
+                          <p className="text-gray-600 text-sm">{item.details}</p>
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
 
               <div className="bg-emerald-50 rounded-lg p-6 border border-emerald-100">
                 <h3 className="font-semibold text-emerald-900 mb-3">Quick Response Guarantee</h3>
@@ -156,7 +175,7 @@ export default function ContactPage() {
                       <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                       <Input
                         type="tel"
-                        placeholder="+1 (416) 123-4567"
+                        placeholder="+1 289-374-6421"
                         className="border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 transition-all duration-300 group-hover:border-gray-400"
                       />
                     </div>
