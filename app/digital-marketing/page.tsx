@@ -11,6 +11,8 @@ import {
   CheckCircle,
   TrendingUp,
 } from "lucide-react"
+import FooterSection from "@/components/footer"
+
 
 export default function DigitalMarketingPage() {
   return (
@@ -230,6 +232,8 @@ export default function DigitalMarketingPage() {
           </Button>
         </div>
       </section>
+            <FooterSection />
+
     </div>
   )
 }
