@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import FooterSection from "@/components/footer"
 import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
+import { Footer } from "react-day-picker"
 
 export default function HomePage() {
   return (
