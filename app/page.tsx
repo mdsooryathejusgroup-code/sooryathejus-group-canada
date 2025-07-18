@@ -62,7 +62,7 @@ export default function HomePage() {
               <Link href="/contact#message">
               <Button
                 size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Schedule Consultation
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -72,8 +72,7 @@ export default function HomePage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-md font-medium bg-transparent"
-              >
+                 className="border-gray-300 text-gray-700 hover:border-emerald-600 px-8 py-3 rounded-md font-medium bg-transparent transition-colors duration-300 transform hover:scale-105"              >
                 View Our Work
               </Button>
               </Link>
@@ -375,7 +374,7 @@ export default function HomePage() {
               <Link href="/contact#message">
               <Button
                 size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transform hover:scale-105"
               >
                 <Phone className="mr-2 w-4 h-4" />
                 Schedule Free Consultation
@@ -384,8 +383,9 @@ export default function HomePage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3 rounded-md font-medium bg-transparent"
-              >
+                className="relative px-8 py-3 rounded-md font-semibold border-2 border-white text-white bg-transparent shadow-lg transition-all duration-300
+                  hover:bg-emerald-600  hover:text-white hover:shadow-2xl hover:scale-105"
+                >        
                 View Case Studies
               </Button>
             </div>

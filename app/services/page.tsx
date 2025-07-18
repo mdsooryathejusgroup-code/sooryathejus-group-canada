@@ -67,7 +67,7 @@ export default function ServicesPage() {
             <Link href="/services#services">
             <Button
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
             >
               Explore Our Services
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -273,7 +273,7 @@ export default function ServicesPage() {
             growth.
           </p>
           <Link href="/contact#message">
-          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium">
+          <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Free Consultation
           </Button>
           </Link>
