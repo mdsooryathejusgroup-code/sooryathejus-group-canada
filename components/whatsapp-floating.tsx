@@ -1,0 +1,32 @@
+// components/WhatsAppButton.tsx
+import React from "react";
+import Image from "next/image";
+import styles from "./WhatsAppButton.module.css";
+
+interface WhatsAppButtonProps {
+  phone: string;
+  message?: string;
+}
+
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phone, message = "" }) => {
+  const encodedMessage = encodeURIComponent(message);
+  const link = `https://wa.me/${phone}${message ? `?text=${encodedMessage}` : ""}`;
+
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.whatsappFloat}
+    >
+      <Image
+        src="https://img.icons8.com/color/32/000000/whatsapp--v1.png" // smaller icon version
+        alt="WhatsApp"
+        width={20}
+        height={20}
+      />
+    </a>
+  );
+};
+
+export default WhatsAppButton;

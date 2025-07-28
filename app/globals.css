@@ -224,3 +224,44 @@ html {
 .btn-animate:hover::before {
   left: 100%;
 }
+
+.bg-emerald-600 {
+  background-color: rgb(11 183 130) !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-slide-up {
+    @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
+    animation: slideUp 1s forwards;
+  }
+  .animate-slide-left {
+    @apply opacity-0 -translate-x-10 transition-all duration-700 ease-out;
+    animation: slideLeft 1s forwards;
+  }
+  .animate-fade-in {
+    @apply opacity-0 transition-opacity duration-1000 ease-in;
+    animation: fadeIn 1s forwards;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
