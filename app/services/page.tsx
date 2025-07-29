@@ -2,14 +2,40 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
-  Briefcase,
+  Home,
+  Map,
+   Gem,
+   ClipboardList,
+   Handshake,
+  Building,
+  Building2,
   Users,
-  FileText,
+  UserCheck,
+  Briefcase,
+  Key,
+  MapPin,
+  TrendingUp,
   Calculator,
+  Search,
   Globe,
-  Lightbulb,
+  Hammer,
+  HardHat,
+  Shield,
+  DollarSign,
+  Diamond,
+  Calendar,
+  FileText,
   CheckCircle,
   Target,
+  Sofa,
+  Truck,
+  Clock,
+  Cpu,
+  GraduationCap,
+  ArrowLeftRight,
+  Zap,
+  Layers,
+  Tag,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
@@ -72,54 +98,176 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Briefcase,
-                title: "Business Consulting",
-                description: "Strategic guidance to help your business grow and overcome challenges.",
-                features: ["Strategic Planning", "Market Analysis", "Process Optimization", "Growth Strategies"],
-                highlight: "95% client success rate",
+                icon: Search,
+                title: "Appraisals",
+                description: "Professional property valuation services for accurate market assessments and financial decisions.",
+                features: ["Market Value Analysis", "Comparative Market Analysis", "Investment Property Appraisal", "Insurance Appraisals"],
+                highlight: "Licensed appraisers",
+              },
+             {
+              icon: Cpu,
+              title: "Building IOT Sales",
+              description: "Specialized sales of smart buildings and IoT-integrated properties featuring cutting-edge automation, energy management, and connected living solutions.",
+              features: ["Smart Home Integration", "IoT System Consultation", "Automated Building Features", "Connected Property Marketing"],
+              highlight: "Next-generation smart properties",
+            },
+              {
+                icon: UserCheck,
+                title: "Buying Agent Services",
+                description: "Dedicated buyer representation to help you find and purchase your ideal property.",
+                features: ["Property Search", "Negotiation Support", "Due Diligence", "Closing Assistance"],
+                highlight: "98% client satisfaction",
               },
               {
-                icon: Users,
-                title: "HR Solutions",
-                description: "Complete human resources services to manage and develop your workforce.",
-                features: ["Recruitment", "Training Programs", "Performance Management", "HR Compliance"],
-                highlight: "50% faster hiring",
+                icon: Building2,
+                title: "Commercial Property Buying & Sales",
+                description: "Expert handling of commercial real estate transactions for businesses and investors.",
+                features: ["Market Analysis", "Investment Evaluation", "Lease Negotiations", "Portfolio Management"],
+                highlight: "$50M+ transactions",
+              },
+              {
+                icon: Key,
+                title: "Condo Rentals",
+                description: "Complete condominium rental services from tenant screening to lease management.",
+                features: ["Tenant Screening", "Lease Preparation", "Rent Collection", "Maintenance Coordination"],
+                highlight: "95% occupancy rate",
+              },
+              {
+                icon: Home,
+                title: "First-time Home Buyer Services",
+                description: "Comprehensive guidance and support for first-time homebuyers throughout the process.",
+                features: ["Buyer Education", "Financing Guidance", "Home Inspection Support", "Closing Assistance"],
+                highlight: "1000+ first-time buyers",
+              },
+              {
+                icon: Sofa,
+                title: "Furnished Property Rentals & Sales",
+                description: "Specialized services for furnished properties including staging and premium rentals.",
+                features: ["Professional Staging", "Furniture Coordination", "Premium Marketing", "Executive Rentals"],
+                highlight: "30% faster sales",
+              },
+              {
+                icon: Map,
+                title: "Land Leasing & Sales",
+                description: "Expert land transaction services for agricultural, commercial, and development purposes.",
+                features: ["Land Valuation", "Zoning Consultation", "Development Rights", "Lease Structuring"],
+                highlight: "10,000+ acres managed",
+              },
+              {
+                icon:  Gem,
+                title: "Luxury Property Buying & Sales",
+                description: "Exclusive services for high-end residential and commercial luxury property transactions.",
+                features: ["Discreet Marketing", "International Exposure", "White-glove Service", "Luxury Staging"],
+                highlight: "$100M+ luxury sales",
+              },
+              {
+                icon: Hammer,
+                title: "New Construction Sales & Leasing",
+                description: "Specialized services for newly constructed properties and pre-construction sales.",
+                features: ["Pre-construction Sales", "Builder Relations", "Progress Monitoring", "Warranty Support"],
+                highlight: "200+ new builds sold",
+              },
+              {
+                icon: HardHat,
+                title: "New Construction Services",
+                description: "Comprehensive support for new construction projects from planning to completion.",
+                features: ["Project Planning", "Contractor Coordination", "Quality Control", "Timeline Management"],
+                highlight: "99% on-time completion",
               },
               {
                 icon: Calculator,
-                title: "Financial Services",
-                description: "Professional financial management and accounting services for businesses.",
-                features: ["Bookkeeping", "Tax Planning", "Financial Analysis", "Budget Management"],
-                highlight: "30% cost savings avg",
+                title: "Project Management",
+                description: "Professional project management for real estate development and construction projects.",
+                features: ["Timeline Planning", "Budget Management", "Contractor Oversight", "Quality Assurance"],
+                highlight: "500+ projects managed",
               },
               {
-                icon: FileText,
-                title: "Legal Support",
-                description: "Business legal services to protect your interests and ensure compliance.",
-                features: ["Contract Review", "Business Formation", "Compliance", "Legal Documentation"],
-                highlight: "100% compliance rate",
+                icon: Handshake,
+                title: "Property Buying & Sales",
+                description: "Full-service property transactions with expert guidance from listing to closing.",
+                features: ["Market Analysis", "Pricing Strategy", "Marketing Campaign", "Negotiation Support"],
+                highlight: "2000+ properties sold",
               },
               {
-                icon: Globe,
-                title: "International Trade",
-                description: "Expand your business globally with our international trade expertise.",
-                features: ["Export/Import", "Trade Documentation", "Market Entry", "Regulatory Compliance"],
-                highlight: "25 countries served",
+                icon: ArrowLeftRight,
+                title: "Property Exchanges",
+                description: "Expert facilitation of property exchanges and 1031 like-kind exchanges for investors.",
+                features: ["Exchange Structuring", "Timeline Coordination", "Tax Advantage Optimization", "Qualified Intermediary"],
+                highlight: "Tax-deferred exchanges",
               },
               {
-                icon: Lightbulb,
-                title: "Innovation Consulting",
-                description: "Drive innovation and digital transformation in your organization.",
-                features: ["Technology Strategy", "Digital Transformation", "Innovation Workshops", "R&D Support"],
-                highlight: "40% efficiency gains",
+                icon: Shield,
+                title: "Property Management",
+                description: "Comprehensive property management services for residential and commercial properties.",
+                features: ["Tenant Management", "Maintenance Oversight", "Financial Reporting", "Legal Compliance"],
+                highlight: "5000+ units managed",
               },
+              {
+                icon: ClipboardList,
+                title: "Property Rentals",
+                description: "Full-service rental management from marketing vacant units to tenant relations.",
+                features: ["Tenant Screening", "Rent Collection", "Maintenance Services", "Lease Administration"],
+                highlight: "98% rent collection",
+              },
+              {
+                icon: Zap,
+                title: "Real Estate Development",
+                description: "End-to-end real estate development services from concept to completion.",
+                features: ["Site Analysis", "Feasibility Studies", "Permit Acquisition", "Construction Management"],
+                highlight: "50+ developments",
+              },
+              {
+                icon: TrendingUp,
+                title: "Real Estate Investing",
+                description: "Investment advisory services to help clients build and optimize real estate portfolios.",
+                features: ["Investment Analysis", "Portfolio Strategy", "Market Research", "ROI Optimization"],
+                highlight: "25% avg returns",
+              },
+              {
+                icon: Users,
+                title: "Real Estate Sales Management",
+                description: "Professional sales team management and training for real estate brokerages.",
+                features: ["Team Training", "Sales Coaching", "Performance Management", "Lead Generation"],
+                highlight: "300+ agents trained",
+              },
+              {
+                icon: Truck,
+                title: "Relocation Assistance",
+                description: "Comprehensive relocation services for individuals and corporate clients moving to new areas.",
+                features: ["Area Orientation", "School Information", "Corporate Packages", "Temporary Housing"],
+                highlight: "1000+ relocations",
+              },
+              {
+                icon: Tag,
+                title: "Seller's Agent Services",
+                description: "Expert seller representation to maximize property value and ensure smooth transactions.",
+                features: ["Property Valuation", "Marketing Strategy", "Showing Coordination", "Negotiation"],
+                highlight: "Average 98% of list price",
+              },
+              {
+                icon: Clock,
+                title: "Short-term Property Rentals",
+                description: "Specialized management of short-term vacation rentals and corporate housing.",
+                features: ["Platform Management", "Guest Services", "Cleaning Coordination", "Revenue Optimization"],
+                highlight: "90% occupancy rate",
+              }
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="w-6 h-6 text-emerald-600" />
+                <div className="relative mb-6">
+                  <div className="w-full h-32 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                    {/* Decorative Elements */}
+                    <div className="absolute top-2 left-2 w-4 h-4 bg-white/20 rounded-full"></div>
+                    <div className="absolute bottom-3 right-3 w-6 h-6 bg-white/10 rounded-full"></div>
+                    <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-white/30 rounded-full"></div>
+                    
+                    {/* Main Icon - Simple Lucide Icon */}
+                    <div className="relative z-10 w-16 h-16 bg-white/95 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-8 h-8 text-emerald-600" />
+                    </div>
+                  </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
