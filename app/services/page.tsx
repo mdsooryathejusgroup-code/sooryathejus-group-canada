@@ -321,7 +321,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Process */}
-      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-16 px-6 bg-emerald-600" >
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Service Process</h2>

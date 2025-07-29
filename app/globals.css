@@ -228,6 +228,10 @@ html {
 .bg-emerald-600 {
   background-color: rgb(11 183 130) !important;
 }
+.to-green-600 {
+  background-color: rgb(11 183 30) !important;
+  --tw-gradient-to: rgb(11 183 30) !important;
+}
 
 @tailwind base;
 @tailwind components;
