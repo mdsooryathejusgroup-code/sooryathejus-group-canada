@@ -240,7 +240,7 @@ export default function RealEstatePage() {
         </div>
       </section>
       {/* WhatsApp Floating Button */}
-      <WhatsAppFloatingButton phone="1234567890" message="Hello! I need assistance with real estate." />  
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
             <FooterSection />
 
     </div>
