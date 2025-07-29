@@ -35,7 +35,7 @@ export default function DigitalMarketingPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 bg-emerald-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
                 >
                   Get Free Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -177,7 +177,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-16 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Proven Results</h2>
