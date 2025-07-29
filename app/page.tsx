@@ -382,7 +382,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <WhatsAppFloatingButton phone="1234567890" message="Hello! I need assistance with real estate." />  
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
 
                  <FooterSection />
      
