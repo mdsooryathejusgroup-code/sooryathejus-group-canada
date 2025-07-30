@@ -288,111 +288,123 @@ export default function HomePage() {
             <p className="text-lg text-gray-600">Trusted by businesses across Canada</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Yadunath Poduval",
-                testimonial:
-                  "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
-                rating: 5,
-                avatar:null,
-              },
-              {
-                name: "Anjali s Krishna",
-                testimonial:
-                  "TExcellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
-                rating: 5,
-                avatar: "/users/anjali.png",
-              },
-              {
-                name: "Edwin Johnson",
-                testimonial:
-                  "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
-                rating: 5,
-                avatar: "/users/edwin.png",
-              },
-              {
-                name: "Abhirami Nandakumar",
-                testimonial:
-                  "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
-                rating: 5,
-                avatar: null,
-              },
-              {
-                name: "Adhwaith Nandakumar",
-                testimonial:
-                  "Best Real estate agency",
-                rating: 5,
-                avatar: "/users/Adhwaith.png",
-              },
-              {
-                name: "Pragati Patil",
-                testimonial:
-                  "Good service",
-                rating: 5,
-                avatar: null,
-              },
-              {
-                name: "Sanchita Bose",
-                rating: 5,
-                avatar: null,
-              },
-               {
-                name: "vaisagh kodur",
-                rating: 5,
-                avatar: "/users/vaisagh.png",
-              },
-
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition-all duration-500 border border-transparent hover:border-gray-200 group"
-              >
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300"
-                      style={{ transitionDelay: `${i * 50}ms` }}
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">"{testimonial.testimonial}"</p>
-                                <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 ${
-                    testimonial.avatar ? 'bg-gray-200' : getAvatarColor(testimonial.name)
-                  }`}>
-                    {testimonial.avatar ? (
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (nextElement) {
-                            nextElement.style.display = 'flex';
-                          }
-                        }}
-                      />
-                    ) : null}
-                    <div 
-                      className={`w-full h-full flex items-center justify-center ${testimonial.avatar ? 'hidden' : 'flex'}`}
-                      style={{ display: testimonial.avatar ? 'none' : 'flex' }}
-                    >
-                      <span className="text-white font-semibold text-sm">
-                        {getInitials(testimonial.name)}
-                      </span>
+          {/* All Reviews - Scrollable Section */}
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
+              {[
+                {
+                  name: "Yadunath Poduval",
+                  testimonial:
+                    "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "Anjali s Krishna",
+                  testimonial:
+                    "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
+                  rating: 5,
+                  avatar: "/users/anjali.png",
+                },
+                {
+                  name: "Edwin Johnson",
+                  testimonial:
+                    "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
+                  rating: 5,
+                  avatar: "/users/edwin.png",
+                },
+                {
+                  name: "Abhirami Nandakumar",
+                  testimonial:
+                    "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "Adhwaith Nandakumar",
+                  testimonial:
+                    "Best Real estate agency",
+                  rating: 5,
+                  avatar: "/users/Adhwaith.png",
+                },
+                {
+                  name: "Pragati Patil",
+                  testimonial:
+                    "Good service",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "Sanchita Bose",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "vaisagh kodur",
+                  rating: 5,
+                  avatar: "/users/vaisagh.png",
+                },
+              ].map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-500 border border-transparent hover:border-gray-200 group flex-shrink-0"
+                  style={{ minWidth: '350px', maxWidth: '350px' }}
+                >
+                  {/* Avatar and Name */}
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 ${
+                      testimonial.avatar ? 'bg-gray-200' : getAvatarColor(testimonial.name)
+                    }`}>
+                      {testimonial.avatar ? (
+                        <img
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (nextElement) {
+                              nextElement.style.display = 'flex';
+                            }
+                          }}
+                        />
+                      ) : null}
+                      <div 
+                        className={`w-full h-full flex items-center justify-center ${testimonial.avatar ? 'hidden' : 'flex'}`}
+                        style={{ display: testimonial.avatar ? 'none' : 'flex' }}
+                      >
+                        <span className="text-white font-semibold text-sm">
+                          {getInitials(testimonial.name)}
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+                        {testimonial.name}
+                      </h4>
                     </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
-                      {testimonial.name}
-                    </h4>
+
+                  {/* Rating */}
+                  <div className="flex items-center space-x-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300"
+                        style={{ transitionDelay: `${i * 50}ms` }}
+                      />
+                    ))}
                   </div>
+
+                  {/* Testimonial Text */}
+                  {testimonial.testimonial && (
+                    <p className="text-gray-700 leading-relaxed italic text-sm">
+                      {testimonial.testimonial}
+                    </p>
+                  )}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-12">
