@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -8,7 +10,22 @@ import {
 import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
+import { useLoading } from "@/components/context/loading-context"
+import { useEffect } from "react"
 export default function ServicesPage() {
+  const { startLoading, stopLoading } = useLoading()
+  
+  // Test the loading system
+  useEffect(() => {
+    startLoading("Loading services...", "page")
+    
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      stopLoading()
+    }, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [startLoading, stopLoading])
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
