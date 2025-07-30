@@ -2,11 +2,28 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function HeaderSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Real Estate", path: "/real-estate" },
+    { name: "Digital Marketing", path: "/digital-marketing" },
+    { name: "Contact", path: "/contact" },
+  ]
+
+  const navLinkClass = (path: string) =>
+    `text-sm ${
+      pathname === path
+        ? "text-emerald-600 font-semibold"
+        : "text-gray-700 hover:text-emerald-600"
+    } transition-colors`
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
@@ -24,21 +41,11 @@ export default function HeaderSection() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Services
-            </Link>
-            <Link href="/real-estate" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Real Estate
-            </Link>
-            <Link href="/digital-marketing" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Digital Marketing
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Contact
-            </Link>
+            {navItems.map(({ name, path }) => (
+              <Link key={path} href={path} className={navLinkClass(path)}>
+                {name}
+              </Link>
+            ))}
           </nav>
 
           {/* CTA Button */}
@@ -63,41 +70,16 @@ export default function HeaderSection() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
-                className="text-gray-700 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                href="/services" 
-                className="text-gray-700 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link 
-                href="/real-estate" 
-                className="text-gray-700 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Real Estate
-              </Link>
-              <Link 
-                href="/digital-marketing" 
-                className="text-gray-700 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Digital Marketing
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-gray-700 hover:text-emerald-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
+              {navItems.map(({ name, path }) => (
+                <Link
+                  key={path}
+                  href={path}
+                  className={navLinkClass(path)}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {name}
+                </Link>
+              ))}
               <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                 <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
                   Get Started

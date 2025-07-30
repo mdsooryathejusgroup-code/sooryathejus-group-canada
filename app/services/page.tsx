@@ -8,6 +8,7 @@ import {
   Target,
  } from "lucide-react"
 import FooterSection from "@/components/footer"
+
 import HeaderSection from "@/components/header"
 export default function ServicesPage() {
   return (
@@ -374,6 +375,7 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+      <WhatsAppFloatingButton message="Hello! I need assistance with services." />  
 
      <FooterSection />
       
