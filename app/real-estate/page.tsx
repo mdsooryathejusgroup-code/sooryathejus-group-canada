@@ -1,3 +1,5 @@
+
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,6 +18,8 @@ import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import HeroSection from "@/components/heroSection"
+import CountUp from "react-countup"
+
 export default function RealEstatePage() {
   return (
     <div className="min-h-screen bg-white">
@@ -37,7 +41,7 @@ export default function RealEstatePage() {
 
 
       {/* Services Section */}
-      <section className="py-24 px-6 bg-gray-50 ">
+      <section className="py-16 md:py-24 px-6 bg-gray-50 ">
         <div className="container mx-auto ">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Real Estate Services</h2>
@@ -117,50 +121,63 @@ export default function RealEstatePage() {
       </section>
 
       {/* Market Insights */}
-      <section className="py-24 px-6 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Canadian Real Estate Market</h2>
-            <p className="text-lg text-gray-600">Current market insights and trends</p>
+<section className="py-16 md:py-24 px-6 bg-white">
+  <div className="container mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">Canadian Real Estate Market</h2>
+      <p className="text-lg text-gray-600">Current market insights and trends</p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          city: "Toronto",
+          price: 1.2,
+          suffix: "M",
+          change: 5.2,
+          description: "Average home price in the Greater Toronto Area continues to show steady growth.",
+        },
+        {
+          city: "Vancouver",
+          price: 1.4,
+          suffix: "M",
+          change: 3.8,
+          description: "Vancouver remains one of Canada's most desirable real estate markets.",
+        },
+        {
+          city: "Calgary",
+          price: 485,
+          suffix: "K",
+          change: 7.1,
+          description: "Calgary shows strong recovery with increasing demand and competitive pricing.",
+        },
+      ].map((market, index) => (
+        <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">{market.city} Market</h3>
+
+          <div className="text-3xl font-bold text-emerald-600 mb-2">
+            $
+            <CountUp
+              end={market.price}
+              decimals={market.suffix === "K" ? 0 : 1}
+              suffix={market.suffix}
+              duration={2}
+            />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                city: "Toronto",
-                price: "$1.2M",
-                change: "+5.2%",
-                description: "Average home price in the Greater Toronto Area continues to show steady growth.",
-                trend: "up",
-              },
-              {
-                city: "Vancouver",
-                price: "$1.4M",
-                change: "+3.8%",
-                description: "Vancouver remains one of Canada's most desirable real estate markets.",
-                trend: "up",
-              },
-              {
-                city: "Calgary",
-                price: "$485K",
-                change: "+7.1%",
-                description: "Calgary shows strong recovery with increasing demand and competitive pricing.",
-                trend: "up",
-              },
-            ].map((market, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{market.city} Market</h3>
-                <div className="text-3xl font-bold text-emerald-600 mb-2">{market.price}</div>
-                <div className="text-emerald-600 font-medium mb-4">{market.change} YoY</div>
-                <p className="text-gray-600 text-sm">{market.description}</p>
-              </div>
-            ))}
+          <div className="text-emerald-600 font-medium mb-4">
+            <CountUp end={market.change} decimals={1} duration={2} />% YoY
           </div>
+
+          <p className="text-gray-600 text-sm">{market.description}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6 bg-emerald-600">
+      <section className="py-16 md:py-24 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Why Choose Our Real Estate Services?</h2>
@@ -197,7 +214,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Make Your Real Estate Move?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">

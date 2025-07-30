@@ -83,7 +83,7 @@ const [loading, setLoading] = useState(false);
       Get in touch with <span className="text-emerald-600">Our Experts</span>
     </h1>
     <p className="text-xl text-gray-600 mb-10">
-      Ready to take your business to the next level? Contact our team of experts and let's discuss how we can help you achieve your goals.
+      Ready to take your business to the next level?<br></br> Contact our team of experts and let's discuss how we can help you achieve your goals.
     </p>
   </div>
 </section>

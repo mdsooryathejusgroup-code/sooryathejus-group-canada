@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,6 +17,7 @@ import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import AnimatedSection from "@/components/AnimatedSection"
 import HeroSection from "@/components/heroSection"
+import  CountUp  from "react-countup"
 export default function DigitalMarketingPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -32,7 +34,7 @@ export default function DigitalMarketingPage() {
     />
 
       {/* Services Grid */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Digital Marketing Services</h2>
@@ -102,8 +104,21 @@ export default function DigitalMarketingPage() {
                   ))}
                 </div>
                 <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md">
-                  {service.metric}
+                  {(() => {
+                    const match = service.metric.match(/([\d.]+)([^\d]*)/)
+                    if (match) {
+                      const [, number, text] = match
+                      return (
+                        <>
+                          <CountUp end={parseFloat(number)} duration={2} decimals={number.includes('.') ? 1 : 0} />
+                          {text}
+                        </>
+                      )
+                    }
+                    return service.metric
+                  })()}
                 </div>
+
               </div>
             ))}
           </div>
@@ -111,7 +126,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proven Process</h2>
@@ -179,7 +194,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Grow Your Digital Presence?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
@@ -188,6 +203,8 @@ export default function DigitalMarketingPage() {
           <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Get Free Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+
           </Button>
           </Link>
         </div>

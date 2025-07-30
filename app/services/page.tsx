@@ -28,7 +28,7 @@ export default function ServicesPage() {
       />
 
       {/* Core Services */}
-      <section className="py-24 px-6 bg-gray-50" id ="services">
+      <section className="py-16 md:py-24 px-6 bg-gray-50" id ="services">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Services</h2>
@@ -223,7 +223,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industry Expertise */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Industry Expertise</h2>
@@ -293,7 +293,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Services?</h2>
@@ -331,7 +331,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">

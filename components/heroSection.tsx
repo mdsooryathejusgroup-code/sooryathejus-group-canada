@@ -72,12 +72,13 @@ export default function HeroSection({
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href={buttonLink}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  className="inline-flex items-center justify-center max-w-fit px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg mx-auto sm:mx-0"
                 >
                   {buttonText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
+
             </div>
           </AnimatedSection>
 
