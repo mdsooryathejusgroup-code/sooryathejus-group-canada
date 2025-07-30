@@ -12,43 +12,58 @@ import {
   TrendingUp,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
-import HeaderSection from "@/components/header"
 
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+import HeaderSection from "@/components/header"
+import AnimatedSection from "@/components/AnimatedSection"
 
 export default function DigitalMarketingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      
-      <HeaderSection />
+<HeaderSection />
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <TrendingUp className="w-4 h-4" />
-              <span>Proven ROI Growth for 300+ Clients</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              Digital Marketing
-              <span className="block text-emerald-600">That Delivers Results</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Drive growth, increase visibility, and maximize ROI with our comprehensive digital marketing solutions
-              tailored for Canadian businesses.
-            </p>
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-            >
-              Start Your Campaign
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+{/* Hero Section */}
+<section className="relative bg-gradient-to-br from-emerald-50 to-green-100 py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <AnimatedSection>
+        <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <TrendingUp className="w-4 h-4" />
+          <span>Proven ROI Growth for 300+ Clients</span>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Digital Marketing That
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600"> Delivers Results</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Drive growth, increase visibility, and maximize ROI with our comprehensive digital marketing solutions
+          tailored for Canadian businesses.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+          >
+            Get Free Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+      </AnimatedSection>
+      <AnimatedSection>
+        <img
+          src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Digital Marketing"
+          className="rounded-2xl shadow-2xl"
+        />
+      </AnimatedSection>
+    </div>
+  </div>
+</section>
+
           </div>
         </div>
       </section>
-
       {/* Services Grid */}
       <section className="py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
@@ -174,7 +189,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Results Section */}
-      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-16 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Proven Results</h2>
@@ -210,6 +225,8 @@ export default function DigitalMarketingPage() {
           </Link>
         </div>
       </section>
+            <WhatsAppFloatingButton message="Hello! I need assistance with digital marketing." />  
+
             <FooterSection />
 
     </div>

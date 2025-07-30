@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button"
 import FooterSection from "@/components/footer"
 import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
 import { Footer } from "react-day-picker"
+import HeaderSection from "@/components/header"
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
 
 const getInitials = (name: string) => {
   return name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2);
@@ -18,6 +21,7 @@ const getAvatarColor = (name: string) => {
   const hash = name.split('').reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
   return colors[hash % colors.length];
 };
+
 
 export default function HomePage() {
   return (
@@ -58,43 +62,51 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <Star className="w-4 h-4" />
-              <span>Trusted by 500+ Canadian Businesses</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              Elevate Your Business
-              <span className="block text-emerald-600">With Expert Solutions</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Partner with Canada's leading business solutions provider. We deliver strategic digital marketing, premium
-              real estate services, and comprehensive business consulting.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/contact#message">
-              <Button
-                size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
-              >
-                Schedule Consultation
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              </Link>
-              <Link href="/#ourwork">
-              <Button
-                variant="outline"
-                size="lg"
-                 className="border-gray-300 text-gray-700 hover:border-emerald-600 px-8 py-3 rounded-md font-medium bg-transparent transition-colors duration-300 transform hover:scale-105"              >
-                View Our Work
-              </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="pt-16 pb-24 px-6 relative bg-gradient-to-br from-emerald-50 to-green-100">
+  <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+    {/* Left Text */}
+    <div className="text-center md:text-left">
+      <div className="inline-flex items-center space-x-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
+        <Star className="w-4 h-4" />
+        <span>Trusted by 500+ Canadian Businesses</span>
+      </div>
+      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight animate-slide-up">
+        Elevate Your Business
+        <span className="block text-emerald-600">With Expert Solutions</span>
+      </h1>
+      <p className="text-xl text-gray-700 mb-10 max-w-xl leading-relaxed animate-fade-in">
+        Partner with Canada's leading business solutions provider. We deliver strategic digital marketing, real estate services, and business consulting.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <Link href="/contact#message">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium transform hover:scale-105 transition">
+            Schedule Consultation
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Link>
+        <Link href="/#ourwork">
+          <Button variant="outline" className="text-emerald-600 border-emerald-500 hover:bg-emerald-600 hover:text-white px-8 py-3 rounded-md transition">
+            View Our Work
+          </Button>
+        </Link>
+      </div>
+    </div>
+
+    {/* Right Image */}
+    <div className="relative w-full max-w-md mx-auto animate-slide-left">
+      <img
+        src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
+        alt="Team collaboration"
+        className="rounded-2xl shadow-2xl w-full"
+      />
+      <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl">
+        <div className="text-2xl font-bold text-emerald-600">500+</div>
+        <div className="text-gray-600 text-sm">Happy Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Features Section */}
       <section className="py-24 px-6 bg-gray-50">
@@ -476,6 +488,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
 
                  <FooterSection />
      
