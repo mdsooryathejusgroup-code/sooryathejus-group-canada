@@ -8,85 +8,53 @@ import {
   Target,
  } from "lucide-react"
 import FooterSection from "@/components/footer"
-import { useLoading } from "@/components/context/loading-context"
-import { useEffect } from "react"
-
+import HeaderSection from "@/components/header"
 export default function ServicesPage() {
-  const { startLoading, stopLoading } = useLoading()
-  
-  // Test the loading system
-  useEffect(() => {
-    startLoading("Loading services...", "page")
-    
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      stopLoading()
-    }, 2000)
-    
-    return () => clearTimeout(timer)
-  }, [startLoading, stopLoading])
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-              <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Home
-              </Link>
-              <Link
-                href="/digital-marketing"
-                className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
-              >
-                Digital Marketing
-              </Link>
-              <Link href="/real-estate" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Real Estate
-              </Link>
-              <Link href="/services" className="text-emerald-600 font-medium text-sm">
-                Services
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <HeaderSection />
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <Target className="w-4 h-4" />
-              <span>Serving 200+ Canadian Businesses</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              Business Services
-              <span className="block text-emerald-600">For Growth & Success</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive business solutions designed to help Canadian companies thrive in today's competitive
-              marketplace.
-            </p>
-            <Link href="/services#services">
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-            >
-              Explore Our Services
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            </Link>
-          </div>
+<section className="pt-16 pb-24 px-6">
+  <div className="container mx-auto">
+    <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+
+      {/* Text Section */}
+      <div className="text-center md:text-left md:w-1/2">
+        <div className="inline-flex items-center space-x-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-8 mx-auto md:mx-0">
+          <Target className="w-4 h-4" />
+          <span>Serving 200+ Canadian Businesses</span>
         </div>
-      </section>
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+          Business Services
+          <span className="block text-emerald-600">For Growth & Success</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-10 max-w-md leading-relaxed mx-auto md:mx-0">
+          Comprehensive business solutions designed to help Canadian companies thrive in today's competitive marketplace.
+        </p>
+        <Link href="/services#services">
+          <Button
+            size="lg"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
+          >
+            Explore Our Services
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Link>
+      </div>
+
+      {/* Image Section with animation */}
+    
+        <img
+          src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Marketing Services"
+          className="rounded-2xl shadow-2xl w-full h-auto"
+        />
+
+    </div>
+  </div>
+</section>
 
       {/* Core Services */}
       <section className="py-24 px-6 bg-gray-50" id ="services">
@@ -316,7 +284,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Process */}
-      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-16 px-6 bg-emerald-600" >
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Service Process</h2>
@@ -407,7 +375,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-            <FooterSection />
+     <FooterSection />
       
     </div>
   )
