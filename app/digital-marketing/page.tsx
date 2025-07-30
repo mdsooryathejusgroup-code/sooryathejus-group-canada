@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,56 +17,26 @@ import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import AnimatedSection from "@/components/AnimatedSection"
+import HeroSection from "@/components/heroSection"
+import  CountUp  from "react-countup"
 
 export default function DigitalMarketingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-<HeaderSection />
+    <HeaderSection />
+    <HeroSection
+      title="Digital Marketing That"
+      highlight="Drives Results"
+      description="Transform your online presence with data-driven digital marketing strategies. From SEO to social media, we help businesses grow their digital footprint and increase revenue."
+      buttonText="Get Free Consultation"
+      buttonLink="/contact"
+      imageSrc="/heroSection/digitalMarketing.jpeg"
+      imageAlt="Digital Marketing"
+    />
 
-{/* Hero Section */}
-<section className="relative bg-gradient-to-br from-emerald-50 to-green-100 py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <AnimatedSection>
-        <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-          <TrendingUp className="w-4 h-4" />
-          <span>Proven ROI Growth for 300+ Clients</span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Digital Marketing That
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600"> Delivers Results</span>
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Drive growth, increase visibility, and maximize ROI with our comprehensive digital marketing solutions
-          tailored for Canadian businesses.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
-          >
-            Get Free Consultation
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </AnimatedSection>
-      <AnimatedSection>
-        <img
-          src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Digital Marketing"
-          className="rounded-2xl shadow-2xl"
-        />
-      </AnimatedSection>
-    </div>
-  </div>
-</section>
-
-          </div>
-        </div>
-      </section>
       {/* Services Grid */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Digital Marketing Services</h2>
@@ -135,8 +106,21 @@ export default function DigitalMarketingPage() {
                   ))}
                 </div>
                 <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md">
-                  {service.metric}
+                  {(() => {
+                    const match = service.metric.match(/([\d.]+)([^\d]*)/)
+                    if (match) {
+                      const [, number, text] = match
+                      return (
+                        <>
+                          <CountUp end={parseFloat(number)} duration={2} decimals={number.includes('.') ? 1 : 0} />
+                          {text}
+                        </>
+                      )
+                    }
+                    return service.metric
+                  })()}
                 </div>
+
               </div>
             ))}
           </div>
@@ -144,7 +128,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proven Process</h2>
@@ -212,15 +196,17 @@ export default function DigitalMarketingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Grow Your Digital Presence?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our digital marketing expertise can help your business reach new heights.
           </p>
-          <Link href="/contact#message">
+          <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Get Free Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+
           </Button>
           </Link>
         </div>

@@ -1,3 +1,5 @@
+
+"use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,6 +18,9 @@ import FooterSection from "@/components/footer"
 
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
+import HeroSection from "@/components/heroSection"
+import CountUp from "react-countup"
+
 
 export default function RealEstatePage() {
   return (
@@ -24,52 +29,22 @@ export default function RealEstatePage() {
 
       <HeaderSection />
 
+    <HeroSection
+      title="Real Estate Solutions"
+      highlight="For Every Need"
+      description="Your trusted partner in Canadian real estate. From residential to commercial properties, we provide comprehensive solutions for all your real estate needs."
+      buttonText="Explore Properties"
+      buttonLink="/real-estate#properties"
+      imageSrc="/heroSection/realEstate.jpeg"
+      imageAlt="Real Estate Marketing"
+      badgeText="$2.5B+ in Property Transactions"
+      badgeIcon={<DollarSign className="w-4 h-4" />}
+    />
 
-<section className="pt-16 pb-24 px-6">
-  <div className="container mx-auto">
-    <div className="flex flex-col-reverse md:flex-row items-center gap-12">
-      
-      {/* Text Section */}
-      <div className="text-center md:text-left md:w-1/2">
-        <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8 mx-auto md:mx-0">
-          <DollarSign className="w-4 h-4" />
-          <span>$2.5B+ in Property Transactions</span>
-        </div>
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-          Real Estate Solutions
-          <span className="block text-emerald-600">For Every Need</span>
-        </h1>
-        <p className="text-xl text-gray-600 mb-10 max-w-md leading-relaxed mx-auto md:mx-0">
-          Your trusted partner in Canadian real estate. From residential to commercial properties, we provide
-          comprehensive solutions for all your real estate needs.
-        </p>
-        <Link href="/real-estate#properties">
-          <Button
-            size="lg"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-          >
-            Explore Properties
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-        </Link>
-      </div>
-
-      {/* Image Section */}
-      <div className="w-full md:w-1/2">
-        <img
-          src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Real Estate Marketing"
-          className="rounded-xl shadow-lg w-full h-auto"
-        />
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
       {/* Services Section */}
-      <section className="py-24 px-6 bg-gray-50 ">
+      <section className="py-16 md:py-24 px-6 bg-gray-50 ">
         <div className="container mx-auto ">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Real Estate Services</h2>
@@ -149,50 +124,63 @@ export default function RealEstatePage() {
       </section>
 
       {/* Market Insights */}
-      <section className="py-24 px-6 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Canadian Real Estate Market</h2>
-            <p className="text-lg text-gray-600">Current market insights and trends</p>
+<section className="py-16 md:py-24 px-6 bg-white">
+  <div className="container mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">Canadian Real Estate Market</h2>
+      <p className="text-lg text-gray-600">Current market insights and trends</p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          city: "Toronto",
+          price: 1.2,
+          suffix: "M",
+          change: 5.2,
+          description: "Average home price in the Greater Toronto Area continues to show steady growth.",
+        },
+        {
+          city: "Vancouver",
+          price: 1.4,
+          suffix: "M",
+          change: 3.8,
+          description: "Vancouver remains one of Canada's most desirable real estate markets.",
+        },
+        {
+          city: "Calgary",
+          price: 485,
+          suffix: "K",
+          change: 7.1,
+          description: "Calgary shows strong recovery with increasing demand and competitive pricing.",
+        },
+      ].map((market, index) => (
+        <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">{market.city} Market</h3>
+
+          <div className="text-3xl font-bold text-emerald-600 mb-2">
+            $
+            <CountUp
+              end={market.price}
+              decimals={market.suffix === "K" ? 0 : 1}
+              suffix={market.suffix}
+              duration={2}
+            />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                city: "Toronto",
-                price: "$1.2M",
-                change: "+5.2%",
-                description: "Average home price in the Greater Toronto Area continues to show steady growth.",
-                trend: "up",
-              },
-              {
-                city: "Vancouver",
-                price: "$1.4M",
-                change: "+3.8%",
-                description: "Vancouver remains one of Canada's most desirable real estate markets.",
-                trend: "up",
-              },
-              {
-                city: "Calgary",
-                price: "$485K",
-                change: "+7.1%",
-                description: "Calgary shows strong recovery with increasing demand and competitive pricing.",
-                trend: "up",
-              },
-            ].map((market, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{market.city} Market</h3>
-                <div className="text-3xl font-bold text-emerald-600 mb-2">{market.price}</div>
-                <div className="text-emerald-600 font-medium mb-4">{market.change} YoY</div>
-                <p className="text-gray-600 text-sm">{market.description}</p>
-              </div>
-            ))}
+          <div className="text-emerald-600 font-medium mb-4">
+            <CountUp end={market.change} decimals={1} duration={2} />% YoY
           </div>
+
+          <p className="text-gray-600 text-sm">{market.description}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6 bg-emerald-600">
+      <section className="py-16 md:py-24 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Why Choose Our Real Estate Services?</h2>
@@ -229,16 +217,17 @@ export default function RealEstatePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Make Your Real Estate Move?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Whether you're buying, selling, or investing, our real estate experts are here to guide you every step of
             the way.
           </p>
-          <Link href="/contact#message">
+          <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           </Link>
         </div>
