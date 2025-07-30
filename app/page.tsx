@@ -2,8 +2,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FooterSection from "@/components/footer"
 import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
-import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
+import { Footer } from "react-day-picker"
 import HeaderSection from "@/components/header"
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
+
 import HeroSection from "@/components/heroSection"
 export default function HomePage() {
   return (

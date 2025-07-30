@@ -15,16 +15,19 @@ import {
   DollarSign,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
+
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import HeroSection from "@/components/heroSection"
 import CountUp from "react-countup"
 
+
 export default function RealEstatePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-    <HeaderSection />
+
+      <HeaderSection />
 
     <HeroSection
       title="Real Estate Solutions"

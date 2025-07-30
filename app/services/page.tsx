@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -6,10 +8,25 @@ import {
   Target,
  } from "lucide-react"
 import FooterSection from "@/components/footer"
-import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
 import HeaderSection from "@/components/header"
 import HeroSection from "@/components/heroSection"
+import { useLoading } from "@/components/context/loading-context"
+import { useEffect } from "react"
 export default function ServicesPage() {
+  const { startLoading, stopLoading } = useLoading()
+  
+  // Test the loading system
+  useEffect(() => {
+    startLoading("Loading services...", "page")
+    
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      stopLoading()
+    }, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [startLoading, stopLoading])
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -349,7 +366,7 @@ export default function ServicesPage() {
       </section>
       <WhatsAppFloatingButton message="Hello! I need assistance with services." />  
 
-            <FooterSection />
+     <FooterSection />
       
     </div>
   )
