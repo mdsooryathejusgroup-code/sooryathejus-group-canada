@@ -15,43 +15,22 @@ import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import AnimatedSection from "@/components/AnimatedSection"
+import HeroSection from "@/components/heroSection"
 export default function DigitalMarketingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
     <HeaderSection />
-      <section className="relative bg-gradient-to-br from-emerald-50 to-green-100 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Digital Marketing That 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600"> Drives Results</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Transform your online presence with data-driven digital marketing strategies. 
-                From SEO to social media, we help businesses grow their digital footprint and increase revenue.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 bg-emerald-600 text-white font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
-                >
-                  Get Free Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection>
-              <img
-                src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Digital Marketing"
-                className="rounded-2xl shadow-2xl"
-              />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
+    <HeroSection
+      title="Digital Marketing That"
+      highlight="Drives Results"
+      description="Transform your online presence with data-driven digital marketing strategies. From SEO to social media, we help businesses grow their digital footprint and increase revenue."
+      buttonText="Get Free Consultation"
+      buttonLink="/contact"
+      imageSrc="/heroSection/digitalMarketing.jpeg"
+      imageAlt="Digital Marketing"
+    />
+
       {/* Services Grid */}
       <section className="py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
@@ -206,7 +185,7 @@ export default function DigitalMarketingPage() {
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our digital marketing expertise can help your business reach new heights.
           </p>
-          <Link href="/contact#message">
+          <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Get Free Consultation
           </Button>

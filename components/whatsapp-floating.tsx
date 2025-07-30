@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "./WhatsAppButton.module.css";
 
 interface WhatsAppButtonProps {
-  phone: string;
   message?: string;
 }
 
@@ -23,8 +22,8 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({message =""}) => {
       <Image
         src="https://img.icons8.com/color/32/000000/whatsapp--v1.png" // smaller icon version
         alt="WhatsApp"
-        width={20}
-        height={20}
+        width={30}
+        height={30}
       />
     </a>
   );

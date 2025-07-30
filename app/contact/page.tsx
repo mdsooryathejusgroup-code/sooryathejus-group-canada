@@ -11,16 +11,21 @@ import { Building2, Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide
 import FooterSection from "@/components/footer"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { useState } from "react";
 
 // Validation Schema
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
-  lastName: z.string().min(2, "Last name is required"),
+  lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message should be at least 10 characters"),
 })
+
+
 
 type FormData = z.infer<typeof formSchema>
 
@@ -33,16 +38,43 @@ export default function ContactPage() {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
+const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data)
-    alert("Message sent successfully!")
-    reset()
+  const onSubmit = async (data: FormData) => {
+  setLoading(true);
+  try {
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        message: data.message,
+        phone:data.phone,
+        service: data.service,
+      }),
+    });
+
+    if (response.ok) {
+      toast.success("Message sent successfully!");
+      reset();
+    } else {
+      toast.error("Failed to send message.");
+    }
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong.");
+  } finally {
+    setLoading(false);
   }
+};
+
+
 
   return (
     <div className="min-h-screen bg-white">
       <HeaderSection />
+<ToastContainer position="top-right" autoClose={3000} />
 
       {/* Hero Section */}
    <section className="pt-16 pb-24 px-6">
@@ -73,7 +105,6 @@ export default function ContactPage() {
                 icon: MapPin,
                 title: "Visit Us",
                 details: "90 Burnhamthorpe Rd W 14th Floor Suite 1412, Mississauga, ON L5B 0H9, Canada",
-                link: "https://maps.app.goo.gl/aoNzEo2dELw31EVZ9?g_st=iwb",
               }, {
                 icon: Phone,
                 title: "Call Us",
@@ -86,19 +117,9 @@ export default function ContactPage() {
                 icon: Clock,
                 title: "Business Hours",
                 details: "Mon-Fri: 11AM-5PM"
-              }].map((item, idx) => item.link ? (
-                <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-all group">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
-                    <item.icon className="w-5 h-5 text-emerald-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.details}</p>
-                  </div>
-                </a>
-              ) : (
-                <div key={idx} className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-all group">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
+              }].map((item, idx) => (
+                <div key={idx} className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-all group">
+                  <div className="w-10 min-w-[2.5rem] h-10 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
                     <item.icon className="w-5 h-5 text-emerald-600" />
                   </div>
                   <div>
@@ -172,10 +193,15 @@ export default function ContactPage() {
                   {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
                 </div>
 
-                <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 font-medium">
-                  <Send className="mr-2 w-4 h-4" />
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 font-medium flex items-center justify-center"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                  <Send className="ml-2 w-4 h-4" />
                 </Button>
+
               </form>
             </div>
           </div>
