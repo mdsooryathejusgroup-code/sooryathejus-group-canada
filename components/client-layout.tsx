@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouteLoading } from '@/hooks/use-route-loading'
+import { useNavigationLoader } from '@/hooks/use-navigation-loader'
 import { ReactNode } from 'react'
 
 interface ClientLayoutProps {
@@ -9,7 +9,7 @@ interface ClientLayoutProps {
 
 export function ClientLayout({ children }: ClientLayoutProps) {
   // This hook will automatically trigger loading on route changes
-  useRouteLoading()
+  useNavigationLoader()
   
   return <>{children}</>
 }

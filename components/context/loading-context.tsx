@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, ReactNode } from "react"
+import { createContext, useContext, useState, ReactNode, useCallback } from "react"
 
 interface LoadingState {
   isLoading: boolean
@@ -27,26 +27,26 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
     type: 'page'
   })
 
-  const setLoading = (state: Partial<LoadingState>) => {
+  const setLoading = useCallback((state: Partial<LoadingState>) => {
     setLoadingState(prev => ({ ...prev, ...state }))
-  }
+  }, [])
 
-  const startLoading = (text?: string, type: LoadingState['type'] = 'page') => {
+  const startLoading = useCallback((text?: string, type: LoadingState['type'] = 'page') => {
     setLoading({ 
       isLoading: true, 
       loadingText: text || 'Loading...', 
       progress: 0,
       type 
     })
-  }
+  }, [setLoading])
 
-  const stopLoading = () => {
+  const stopLoading = useCallback(() => {
     setLoading({ isLoading: false, progress: 100 })
-  }
+  }, [setLoading])
 
-  const setProgress = (progress: number) => {
+  const setProgress = useCallback((progress: number) => {
     setLoading({ progress })
-  }
+  }, [setLoading])
 
   return (
     <LoadingContext.Provider value={{

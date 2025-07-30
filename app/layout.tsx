@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { LoadingProvider } from "@/components/context/loading-context"
-import { PageLoader } from "@/components/loading/page-loader"
+import { SimpleLoader } from "@/components/loading/simple-loader"
 import { ClientLayout } from "@/components/client-layout"
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
       </head>
       <body>
         <LoadingProvider>
-          <PageLoader />
+          <SimpleLoader />
           <ClientLayout>{children}</ClientLayout>
         </LoadingProvider>
       </body>
