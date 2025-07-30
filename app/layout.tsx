@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { LoadingProvider } from "@/components/context/loading-context"
+import { PageLoader } from "@/components/loading/page-loader"
+import { ClientLayout } from "@/components/client-layout"
 
 export const metadata: Metadata = {
-  title: 'Sooryathejus Groups',
-  description: 'Digital Marketting and Real Estate Services',
-  generator: 'v0.dev',
+  title: 'Sooryathejus Group Canada',
+  description: 'Premium real estate and digital marketing services in Canada',
 }
 
 export default function RootLayout({
@@ -17,7 +19,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <LoadingProvider>
+          <PageLoader />
+          <ClientLayout>{children}</ClientLayout>
+        </LoadingProvider>
+      </body>
     </html>
   )
 }
