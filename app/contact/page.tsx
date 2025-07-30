@@ -9,8 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Building2, Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react"
 import FooterSection from "@/components/footer"
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+import HeaderSection from "@/components/header"
 
-// Schema for validation
+// Validation Schema
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(2, "Last name is required"),
@@ -40,42 +42,32 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-              <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-emerald-600 text-sm">Home</Link>
-              <Link href="/digital-marketing" className="text-gray-600 hover:text-emerald-600 text-sm">Digital Marketing</Link>
-              <Link href="/real-estate" className="text-gray-600 hover:text-emerald-600 text-sm">Real Estate</Link>
-              <Link href="/services" className="text-gray-600 hover:text-emerald-600 text-sm">Services</Link>
-              <Link href="/contact" className="text-emerald-600 font-medium text-sm">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <HeaderSection />
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Get In <span className="block text-emerald-600">Touch</span></h1>
-          <p className="text-xl text-gray-600 mb-10">Ready to take your business to the next level? Contact our team of experts and let's discuss how we can help you achieve your goals.</p>
-        </div>
-      </section>
+   <section className="pt-16 pb-24 px-6">
+  <div className="container mx-auto text-center max-w-4xl">
+    <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+      Get in touch with <span className="text-emerald-600">Our Experts</span>
+    </h1>
+    <p className="text-xl text-gray-600 mb-10">
+      Ready to take your business to the next level? Contact our team of experts and let's discuss how we can help you achieve your goals.
+    </p>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="container mx-auto grid lg:grid-cols-5 gap-12 max-w-6xl">
+
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Let's Connect</h2>
               <p className="text-gray-600">Ready to transform your business? Get in touch with our experts today.</p>
             </div>
+
             <div className="space-y-4">
               {[{
                 icon: MapPin,
@@ -132,21 +124,69 @@ export default function ContactPage() {
           <div className="lg:col-span-3">
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                {/* ... form fields ... */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                    <Input {...register("firstName")} placeholder="John" />
+                    {errors.firstName && <p className="text-sm text-red-500 mt-1">{errors.firstName.message}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                    <Input {...register("lastName")} placeholder="Doe" />
+                    {errors.lastName && <p className="text-sm text-red-500 mt-1">{errors.lastName.message}</p>}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <Input type="email" {...register("email")} placeholder="john@company.com" />
+                  {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <Input type="tel" {...register("phone")} placeholder="+1 (416) 123-4567" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Service Interest *</label>
+                    <select
+                      {...register("service")}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="Digital Marketing">Digital Marketing</option>
+                      <option value="Real Estate">Real Estate</option>
+                      <option value="Business Consulting">Business Consulting</option>
+                      <option value="Other Services">Other Services</option>
+                    </select>
+                    {errors.service && <p className="text-sm text-red-500 mt-1">{errors.service.message}</p>}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                  <Textarea rows={4} {...register("message")} placeholder="Tell us about your project..." />
+                  {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
+                </div>
+
+                <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 font-medium">
+                  <Send className="mr-2 w-4 h-4" />
+                  Send Message
+                </Button>
               </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Embedded Map Section */}
+      {/* Map Section */}
       <section className="px-6 pb-16 pt-8">
- <div className="mt-16">
+        <div className="mt-16">
           <h3 className="text-2xl font-bold mb-4 text-emerald-700 text-center">Our Office Location</h3>
-          <p className="text-center text-gray-600 mb-6">
-            Visit us at our head office. Find us on the map below:
-          </p>
+          <p className="text-center text-gray-600 mb-6">Visit us at our head office. Find us on the map below:</p>
           <div className="w-full h-72 rounded-xl overflow-hidden border shadow-md">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.7460819287976!2d-79.63675599999999!3d43.591005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b477811261c51%3A0x3eccd8a53240a779!2sSooryathejus%20Group!5e0!3m2!1sen!2sin!4v1752855350296!5m2!1sen!2sin"
@@ -160,6 +200,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
 
       {/* Footer */}
       <FooterSection />

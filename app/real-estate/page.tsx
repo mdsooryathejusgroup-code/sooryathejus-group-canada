@@ -13,71 +13,56 @@ import {
   DollarSign,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
-
-
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+import HeaderSection from "@/components/header"
 export default function RealEstatePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-              <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Home
-              </Link>
-              <Link
-                href="/digital-marketing"
-                className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
-              >
-                Digital Marketing
-              </Link>
-              <Link href="/real-estate" className="text-emerald-600 font-medium text-sm">
-                Real Estate
-              </Link>
-              <Link href="/services" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Services
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <HeaderSection />
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <DollarSign className="w-4 h-4" />
-              <span>$2.5B+ in Property Transactions</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              Real Estate Solutions
-              <span className="block text-emerald-600">For Every Need</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Your trusted partner in Canadian real estate. From residential to commercial properties, we provide
-              comprehensive solutions for all your real estate needs.
-            </p>
-            <Link href="/real-estate#properties">
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-            >
-              Explore Properties
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            </Link>
-          </div>
+<section className="pt-16 pb-24 px-6">
+  <div className="container mx-auto">
+    <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+      
+      {/* Text Section */}
+      <div className="text-center md:text-left md:w-1/2">
+        <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-8 mx-auto md:mx-0">
+          <DollarSign className="w-4 h-4" />
+          <span>$2.5B+ in Property Transactions</span>
         </div>
-      </section>
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+          Real Estate Solutions
+          <span className="block text-emerald-600">For Every Need</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-10 max-w-md leading-relaxed mx-auto md:mx-0">
+          Your trusted partner in Canadian real estate. From residential to commercial properties, we provide
+          comprehensive solutions for all your real estate needs.
+        </p>
+        <Link href="/real-estate#properties">
+          <Button
+            size="lg"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
+          >
+            Explore Properties
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Link>
+      </div>
+
+      {/* Image Section */}
+      <div className="w-full md:w-1/2">
+        <img
+          src="https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Real Estate Marketing"
+          className="rounded-xl shadow-lg w-full h-auto"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Services Section */}
       <section className="py-24 px-6 bg-gray-50 ">
@@ -203,7 +188,7 @@ export default function RealEstatePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-24 px-6 bg-emerald-600">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Why Choose Our Real Estate Services?</h2>
@@ -254,6 +239,8 @@ export default function RealEstatePage() {
           </Link>
         </div>
       </section>
+      {/* WhatsApp Floating Button */}
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
             <FooterSection />
 
     </div>
