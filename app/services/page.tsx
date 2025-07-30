@@ -10,6 +10,7 @@ import {
 import FooterSection from "@/components/footer"
 
 import HeaderSection from "@/components/header"
+import HeroSection from "@/components/heroSection"
 import { useLoading } from "@/components/context/loading-context"
 import { useEffect } from "react"
 export default function ServicesPage() {
@@ -31,49 +32,20 @@ export default function ServicesPage() {
       {/* Navigation */}
       <HeaderSection />
 
-      {/* Hero Section */}
-<section className="pt-16 pb-24 px-6">
-  <div className="container mx-auto">
-    <div className="flex flex-col-reverse md:flex-row items-center gap-12">
-
-      {/* Text Section */}
-      <div className="text-center md:text-left md:w-1/2">
-        <div className="inline-flex items-center space-x-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-8 mx-auto md:mx-0">
-          <Target className="w-4 h-4" />
-          <span>Serving 200+ Canadian Businesses</span>
-        </div>
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-          Business Services
-          <span className="block text-emerald-600">For Growth & Success</span>
-        </h1>
-        <p className="text-xl text-gray-600 mb-10 max-w-md leading-relaxed mx-auto md:mx-0">
-          Comprehensive business solutions designed to help Canadian companies thrive in today's competitive marketplace.
-        </p>
-        <Link href="/services#services">
-          <Button
-            size="lg"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-          >
-            Explore Our Services
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-        </Link>
-      </div>
-
-      {/* Image Section with animation */}
-    
-        <img
-          src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Marketing Services"
-          className="rounded-2xl shadow-2xl w-full h-auto"
-        />
-
-    </div>
-  </div>
-</section>
+      <HeroSection
+        title="Business Services"
+        highlight="For Growth & Success"
+        description="Comprehensive business solutions designed to help Canadian companies thrive in today's competitive marketplace."
+        buttonText="Explore Our Services"
+        buttonLink="/services#services"
+        imageSrc="/heroSection/servicepage.jpeg"
+        imageAlt="Marketing Services"
+        badgeText="Serving 200+ Canadian Businesses"
+        badgeIcon={<Target className="w-4 h-4" />}
+      />
 
       {/* Core Services */}
-      <section className="py-24 px-6 bg-gray-50" id ="services">
+      <section className="py-16 md:py-24 px-6 bg-gray-50" id ="services">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Services</h2>
@@ -268,7 +240,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industry Expertise */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Industry Expertise</h2>
@@ -338,7 +310,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Services?</h2>
@@ -376,16 +348,18 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our comprehensive business services can help you achieve your goals and drive sustainable
             growth.
           </p>
-          <Link href="/contact#message">
+          <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Free Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+
           </Button>
           </Link>
         </div>

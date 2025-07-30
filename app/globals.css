@@ -49,6 +49,11 @@ h6 {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body {
+  scroll-behavior: smooth;
 }
 
 /* Focus states */
@@ -228,10 +233,17 @@ html {
 .bg-emerald-600 {
   background-color: rgb(11 183 130) !important;
 }
+
+.bg-emerald-600:hover {
+  --tw-gradient-to: #15803d var(--tw-gradient-to-position) !important;
+  background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1)) !important;
+}
 .to-green-600 {
   background-color: rgb(11 183 30) !important;
   --tw-gradient-to: rgb(11 183 30) !important;
 }
+
+
 
 @tailwind base;
 @tailwind components;

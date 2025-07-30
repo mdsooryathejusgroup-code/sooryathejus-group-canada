@@ -4,8 +4,7 @@ import React from "react"
 import Image from "next/image"
 
 interface WhatsAppButtonProps {
-  phone?: string
-  message?: string
+  message?: string;
 }
 
 const WhatsAppFloatingButton: React.FC<WhatsAppButtonProps> = ({
@@ -26,8 +25,8 @@ const WhatsAppFloatingButton: React.FC<WhatsAppButtonProps> = ({
       <Image
         src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
         alt="WhatsApp"
-        width={24}
-        height={24}
+        width={30}
+        height={30}
       />
     </a>
   )
