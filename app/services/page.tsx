@@ -1,84 +1,51 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
-  Briefcase,
-  Users,
-  FileText,
-  Calculator,
-  Globe,
-  Lightbulb,
   CheckCircle,
   Target,
-} from "lucide-react"
+ } from "lucide-react"
 import FooterSection from "@/components/footer"
 
+import HeaderSection from "@/components/header"
+import HeroSection from "@/components/heroSection"
+import { useLoading } from "@/components/context/loading-context"
+import { useEffect } from "react"
 export default function ServicesPage() {
+  const { startLoading, stopLoading } = useLoading()
+  
+  // Test the loading system
+  useEffect(() => {
+    startLoading("Loading services...", "page")
+    
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      stopLoading()
+    }, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [startLoading, stopLoading])
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-              <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Home
-              </Link>
-              <Link
-                href="/digital-marketing"
-                className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
-              >
-                Digital Marketing
-              </Link>
-              <Link href="/real-estate" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Real Estate
-              </Link>
-              <Link href="/services" className="text-emerald-600 font-medium text-sm">
-                Services
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <HeaderSection />
 
-      {/* Hero Section */}
-      <section className="pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <Target className="w-4 h-4" />
-              <span>Serving 200+ Canadian Businesses</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
-              Business Services
-              <span className="block text-emerald-600">For Growth & Success</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive business solutions designed to help Canadian companies thrive in today's competitive
-              marketplace.
-            </p>
-            <Link href="/services#services">
-            <Button
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105"
-            >
-              Explore Our Services
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Business Services"
+        highlight="For Growth & Success"
+        description="Comprehensive business solutions designed to help Canadian companies thrive in today's competitive marketplace."
+        buttonText="Explore Our Services"
+        buttonLink="/services#services"
+        imageSrc="/heroSection/servicepage.jpeg"
+        imageAlt="Marketing Services"
+        badgeText="Serving 200+ Canadian Businesses"
+        badgeIcon={<Target className="w-4 h-4" />}
+      />
 
       {/* Core Services */}
-      <section className="py-24 px-6 bg-gray-50" id ="services">
+      <section className="py-16 md:py-24 px-6 bg-gray-50" id ="services">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Services</h2>
@@ -88,55 +55,171 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Briefcase,
-                title: "Business Consulting",
-                description: "Strategic guidance to help your business grow and overcome challenges.",
-                features: ["Strategic Planning", "Market Analysis", "Process Optimization", "Growth Strategies"],
-                highlight: "95% client success rate",
+                image: "/services/appraisals.webp",
+                title: "Appraisals",
+                description: "Professional property valuation services for accurate market assessments and financial decisions.",
+                features: ["Market Value Analysis", "Comparative Market Analysis", "Investment Property Appraisal", "Insurance Appraisals"],
+                highlight: "Licensed appraisers",
+              },
+             {
+              image: "/services/building-iot-sales.jpeg",
+              title: "Building IOT Sales",
+              description: "Specialized sales of smart buildings and IoT-integrated properties featuring cutting-edge automation, energy management, and connected living solutions.",
+              features: ["Smart Home Integration", "IoT System Consultation", "Automated Building Features", "Connected Property Marketing"],
+              highlight: "Next-generation smart properties",
+            },
+              {
+                 image: "/services/buying-agent-services.webp",
+                title: "Buying Agent Services",
+                description: "Dedicated buyer representation to help you find and purchase your ideal property.",
+                features: ["Property Search", "Negotiation Support", "Due Diligence", "Closing Assistance"],
+                highlight: "98% client satisfaction",
               },
               {
-                icon: Users,
-                title: "HR Solutions",
-                description: "Complete human resources services to manage and develop your workforce.",
-                features: ["Recruitment", "Training Programs", "Performance Management", "HR Compliance"],
-                highlight: "50% faster hiring",
+                image: "/services/commercial-property.jpeg",
+                title: "Commercial Property Buying & Sales",
+                description: "Expert handling of commercial real estate transactions for businesses and investors.",
+                features: ["Market Analysis", "Investment Evaluation", "Lease Negotiations", "Portfolio Management"],
+                highlight: "$50M+ transactions",
               },
               {
-                icon: Calculator,
-                title: "Financial Services",
-                description: "Professional financial management and accounting services for businesses.",
-                features: ["Bookkeeping", "Tax Planning", "Financial Analysis", "Budget Management"],
-                highlight: "30% cost savings avg",
+                image: "/services/condo-rentals.jpeg",
+                title: "Condo Rentals",
+                description: "Complete condominium rental services from tenant screening to lease management.",
+                features: ["Tenant Screening", "Lease Preparation", "Rent Collection", "Maintenance Coordination"],
+                highlight: "95% occupancy rate",
               },
               {
-                icon: FileText,
-                title: "Legal Support",
-                description: "Business legal services to protect your interests and ensure compliance.",
-                features: ["Contract Review", "Business Formation", "Compliance", "Legal Documentation"],
-                highlight: "100% compliance rate",
+                 image: "/services/first-time-buyer.jpg",
+                title: "First-time Home Buyer Services",
+                description: "Comprehensive guidance and support for first-time homebuyers throughout the process.",
+                features: ["Buyer Education", "Financing Guidance", "Home Inspection Support", "Closing Assistance"],
+                highlight: "1000+ first-time buyers",
               },
               {
-                icon: Globe,
-                title: "International Trade",
-                description: "Expand your business globally with our international trade expertise.",
-                features: ["Export/Import", "Trade Documentation", "Market Entry", "Regulatory Compliance"],
-                highlight: "25 countries served",
+                image: "/services/furnished-property.jpeg",
+                title: "Furnished Property Rentals & Sales",
+                description: "Specialized services for furnished properties including staging and premium rentals.",
+                features: ["Professional Staging", "Furniture Coordination", "Premium Marketing", "Executive Rentals"],
+                highlight: "30% faster sales",
               },
               {
-                icon: Lightbulb,
-                title: "Innovation Consulting",
-                description: "Drive innovation and digital transformation in your organization.",
-                features: ["Technology Strategy", "Digital Transformation", "Innovation Workshops", "R&D Support"],
-                highlight: "40% efficiency gains",
+                image: "/services/land-leasing.avif",
+                title: "Land Leasing & Sales",
+                description: "Expert land transaction services for agricultural, commercial, and development purposes.",
+                features: ["Land Valuation", "Zoning Consultation", "Development Rights", "Lease Structuring"],
+                highlight: "10,000+ acres managed",
               },
+              {
+                 image: "/services/luxury-property.jpg",
+                title: "Luxury Property Buying & Sales",
+                description: "Exclusive services for high-end residential and commercial luxury property transactions.",
+                features: ["Discreet Marketing", "International Exposure", "White-glove Service", "Luxury Staging"],
+                highlight: "$100M+ luxury sales",
+              },
+              {
+                image: "/services/new-construction-sales.webp",
+                title: "New Construction Sales & Leasing",
+                description: "Specialized services for newly constructed properties and pre-construction sales.",
+                features: ["Pre-construction Sales", "Builder Relations", "Progress Monitoring", "Warranty Support"],
+                highlight: "200+ new builds sold",
+              },
+              {
+                image: "/services/new-construction-services.jpg",
+                title: "New Construction Services",
+                description: "Comprehensive support for new construction projects from planning to completion.",
+                features: ["Project Planning", "Contractor Coordination", "Quality Control", "Timeline Management"],
+                highlight: "99% on-time completion",
+              },
+              {
+               image: "/services/project-management.png",
+                title: "Project Management",
+                description: "Professional project management for real estate development and construction projects.",
+                features: ["Timeline Planning", "Budget Management", "Contractor Oversight", "Quality Assurance"],
+                highlight: "500+ projects managed",
+              },
+              {
+                 image: "/services/property-buying-sales.jpeg",
+                title: "Property Buying & Sales",
+                description: "Full-service property transactions with expert guidance from listing to closing.",
+                features: ["Market Analysis", "Pricing Strategy", "Marketing Campaign", "Negotiation Support"],
+                highlight: "2000+ properties sold",
+              },
+              {
+               image: "/services/property-exchanges.jpeg",
+                title: "Property Exchanges",
+                description: "Expert facilitation of property exchanges and 1031 like-kind exchanges for investors.",
+                features: ["Exchange Structuring", "Timeline Coordination", "Tax Advantage Optimization", "Qualified Intermediary"],
+                highlight: "Tax-deferred exchanges",
+              },
+              {
+                 image: "/services/property-management.jpeg",
+                title: "Property Management",
+                description: "Comprehensive property management services for residential and commercial properties.",
+                features: ["Tenant Management", "Maintenance Oversight", "Financial Reporting", "Legal Compliance"],
+                highlight: "5000+ units managed",
+              },
+              {
+                image: "/services/property-rentals.jpeg",
+                title: "Property Rentals",
+                description: "Full-service rental management from marketing vacant units to tenant relations.",
+                features: ["Tenant Screening", "Rent Collection", "Maintenance Services", "Lease Administration"],
+                highlight: "98% rent collection",
+              },
+              {
+                 image: "/services/real-estate-development.webp",
+                title: "Real Estate Development",
+                description: "End-to-end real estate development services from concept to completion.",
+                features: ["Site Analysis", "Feasibility Studies", "Permit Acquisition", "Construction Management"],
+                highlight: "50+ developments",
+              },
+              {
+               image: "/services/real-estate-investing.png",
+                title: "Real Estate Investing",
+                description: "Investment advisory services to help clients build and optimize real estate portfolios.",
+                features: ["Investment Analysis", "Portfolio Strategy", "Market Research", "ROI Optimization"],
+                highlight: "25% avg returns",
+              },
+              {
+                image: "/services/real-estate-sales-management.webp",
+                title: "Real Estate Sales Management",
+                description: "Professional sales team management and training for real estate brokerages.",
+                features: ["Team Training", "Sales Coaching", "Performance Management", "Lead Generation"],
+                highlight: "300+ agents trained",
+              },
+              {
+                image: "/services/relocation-assistance.webp",
+                title: "Relocation Assistance",
+                description: "Comprehensive relocation services for individuals and corporate clients moving to new areas.",
+                features: ["Area Orientation", "School Information", "Corporate Packages", "Temporary Housing"],
+                highlight: "1000+ relocations",
+              },
+              {
+                image: "/services/sellers-agent.webp",
+                title: "Seller's Agent Services",
+                description: "Expert seller representation to maximize property value and ensure smooth transactions.",
+                features: ["Property Valuation", "Marketing Strategy", "Showing Coordination", "Negotiation"],
+                highlight: "Average 98% of list price",
+              },
+              {
+                image: "/services/short-term-rentals.jpeg",
+                title: "Short-term Property Rentals",
+                description: "Specialized management of short-term vacation rentals and corporate housing.",
+                features: ["Platform Management", "Guest Services", "Cleaning Coordination", "Revenue Optimization"],
+                highlight: "90% occupancy rate",
+              }
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon className="w-6 h-6 text-emerald-600" />
-                </div>
+              <div className="w-full h-60 rounded-lg mb-3 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <div className="space-y-2 mb-6">
@@ -157,7 +240,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industry Expertise */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-16 md:py-24 px-6 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Industry Expertise</h2>
@@ -189,7 +272,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Process */}
-      <section className="py-16 px-6" style={{ backgroundColor: "rgb(30, 151, 113)" }}>
+      <section className="py-16 px-6 bg-emerald-600" >
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Service Process</h2>
@@ -227,7 +310,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Services?</h2>
@@ -265,22 +348,25 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gray-900">
+      <section className="py-16 md:py-24 px-6 bg-gray-900">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             Let's discuss how our comprehensive business services can help you achieve your goals and drive sustainable
             growth.
           </p>
-          <Link href="/contact#message">
+          <Link href="/contact">
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-medium hover:scale-105">
             Schedule Free Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+
           </Button>
           </Link>
         </div>
       </section>
+      <WhatsAppFloatingButton message="Hello! I need assistance with services." />  
 
-            <FooterSection />
+     <FooterSection />
       
     </div>
   )

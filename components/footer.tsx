@@ -7,28 +7,29 @@ export default function FooterSection() {
     <div>
 
       {/* Footer */}
-   <footer className="bg-white border-t border-gray-200 py-12 px-6">
+   <footer className="bg-white border-t border-gray-200 pt-12 pb-4 px-6">
   <div className="container mx-auto">
     <div className="grid md:grid-cols-2 gap-8">
       {/* Left Section */}
       <div>
         <div className="flex items-center space-x-2 mb-4">
-                <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
+                <img src="/logo.png" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
                 <span className="font-semibold text-gray-900">Sooryathejus Group</span>
           
         </div>
         <p className="text-gray-600 text-sm mb-4">
           Canada's trusted partner for digital marketing, real estate, and business solutions.
         </p>
-        <div className="text-sm text-gray-500">
-          <p>Toronto, Ontario, Canada</p>
-          <p>info@sooryathejusgroup.ca</p>
-          <p>+1 (416) 123-4567</p>
-        </div>
+       <div className="text-sm text-gray-500 leading-7">
+        <p>Toronto, Ontario, Canada</p>
+        <p>info@sooryathejusgroup.ca</p>
+        <p>+1 (416) 123-4567</p>
+      </div>
+
       </div>
 
       {/* Right-Aligned Combined Section */}
-      <div className="flex justify-end text-left">
+      <div className="flex justify-center md:justify-end text-center pt-4">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Services */}
           <div>
@@ -73,9 +74,10 @@ export default function FooterSection() {
     </div>
 
     {/* Footer Bottom */}
-    <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
-      <p>© 2025 Sooryathejus Group. All rights reserved.</p>
-    </div>
+<div className="border-t border-gray-200 mt-4 pt-4 text-center text-sm text-gray-500">
+  <p>© 2025 Sooryathejus Group. All rights reserved.</p>
+</div>
+
   </div>
 </footer>
 
