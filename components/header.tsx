@@ -12,11 +12,18 @@ export default function HeaderSection() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Digital Marketing", path: "/digital-marketing" },
-    { name: "Real Estate", path: "/real-estate" },
     { name: "Services", path: "/services" },
+    { name: "Real Estate", path: "/real-estate" },
+    { name: "Digital Marketing", path: "/digital-marketing" },
     { name: "Contact", path: "/contact" },
   ]
+
+  const navLinkClass = (path: string) =>
+    `text-sm ${
+      pathname === path
+        ? "text-emerald-600 font-semibold"
+        : "text-gray-700 hover:text-emerald-600"
+    } transition-colors`
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
@@ -31,13 +38,7 @@ export default function HeaderSection() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map(({ name, path }) => (
-              <Link
-                key={path}
-                href={path}
-                className={`text-gray-700 hover:text-emerald-600 transition-colors ${
-                  pathname === path ? "text-emerald-600 font-semibold" : ""
-                }`}
-              >
+              <Link key={path} href={path} className={navLinkClass(path)}>
                 {name}
               </Link>
             ))}
@@ -66,9 +67,7 @@ export default function HeaderSection() {
                 <Link
                   key={path}
                   href={path}
-                  className={`text-gray-700 hover:text-emerald-600 transition-colors ${
-                    pathname === path ? "text-emerald-600 font-semibold" : ""
-                  }`}
+                  className={navLinkClass(path)}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {name}

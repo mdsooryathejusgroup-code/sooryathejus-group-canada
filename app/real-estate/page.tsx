@@ -13,13 +13,17 @@ import {
   DollarSign,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
+
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
+
 export default function RealEstatePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-    <HeaderSection />
+
+      <HeaderSection />
+
 
 <section className="pt-16 pb-24 px-6">
   <div className="container mx-auto">

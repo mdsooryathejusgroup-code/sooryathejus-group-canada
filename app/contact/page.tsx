@@ -9,8 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Building2, Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react"
 import FooterSection from "@/components/footer"
-import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
+
 
 // Validation Schema
 const formSchema = z.object({
@@ -42,7 +44,10 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <HeaderSection />
+
+      {/* Navigation */}
+       <HeaderSection />
+
 
       {/* Hero Section */}
    <section className="pt-16 pb-24 px-6">

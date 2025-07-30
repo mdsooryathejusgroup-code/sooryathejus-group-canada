@@ -8,7 +8,7 @@ import {
   Target,
  } from "lucide-react"
 import FooterSection from "@/components/footer"
-import WhatsAppFloatingButton from "@/components/whatsapp-floating"
+
 import HeaderSection from "@/components/header"
 import { useLoading } from "@/components/context/loading-context"
 import { useEffect } from "react"
@@ -392,7 +392,7 @@ export default function ServicesPage() {
       </section>
       <WhatsAppFloatingButton message="Hello! I need assistance with services." />  
 
-            <FooterSection />
+     <FooterSection />
       
     </div>
   )
