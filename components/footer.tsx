@@ -14,7 +14,6 @@ export default function FooterSection() {
       <div>
         <div className="flex items-center space-x-2 mb-4">
                 <img src="/logo.png" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-                <span className="font-semibold text-gray-900">Sooryathejus Group</span>
           
         </div>
         <p className="text-gray-600 text-sm mb-4">

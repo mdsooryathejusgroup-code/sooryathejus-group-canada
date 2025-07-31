@@ -32,7 +32,6 @@ export default function HeaderSection() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <img src="/logo.jpg" alt="Sooryathejus Group" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-gray-900">Sooryathejus Group</span>
           </Link>
 
           {/* Desktop Navigation */}
