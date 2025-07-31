@@ -24,7 +24,7 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
-  message: z.string().min(10, "Message should be at least 10 characters"),
+  message: z.string().min(1, "Message is required").max(500, "Message should not exceed 500 characters"),
 })
 
 
@@ -41,6 +41,7 @@ export default function ContactPage() {
     resolver: zodResolver(formSchema),
   })
 const [loading, setLoading] = useState(false);
+const [messageLength, setMessageLength] = useState(0);
 
   const onSubmit = async (data: FormData) => {
   setLoading(true);
@@ -192,8 +193,22 @@ const [loading, setLoading] = useState(false);
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                  <Textarea rows={4} {...register("message")} placeholder="Tell us about your project..." />
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="block text-sm font-medium text-gray-700">Message *</label>
+                    <span className={`text-xs ${messageLength > 500 ? 'text-red-500' : 'text-gray-500'}`}>
+                      {messageLength}/500
+                    </span>
+                  </div>
+                  <Textarea 
+                    rows={4} 
+                    {...register("message")} 
+                    placeholder="Tell us about your project..." 
+                    maxLength={500}
+                    onChange={(e) => {
+                      setMessageLength(e.target.value.length);
+                      register("message").onChange(e);
+                    }}
+                  />
                   {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
                 </div>
 
