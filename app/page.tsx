@@ -268,9 +268,17 @@ export default function HomePage() {
             <p className="text-lg text-gray-600">Trusted by businesses across Canada</p>
           </div>
 
-          {/* All Reviews - Scrollable Section */}
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
+          {/* All Reviews - Auto-Scrollable Section */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex space-x-6 pb-4 animate-scroll" 
+              style={{ 
+                width: 'max-content',
+                animation: 'scroll 30s linear infinite'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
+              onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+            >
               {[
                 {
                   name: "Yadunath Poduval",
@@ -323,6 +331,35 @@ export default function HomePage() {
                   name: "vaisagh kodur",
                   rating: 5,
                   avatar: "/users/vaisagh.png",
+                },
+                // Duplicate testimonials for seamless loop
+                {
+                  name: "Yadunath Poduval",
+                  testimonial:
+                    "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "Anjali s Krishna",
+                  testimonial:
+                    "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
+                  rating: 5,
+                  avatar: "/users/anjali.png",
+                },
+                {
+                  name: "Edwin Johnson",
+                  testimonial:
+                    "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
+                  rating: 5,
+                  avatar: "/users/edwin.png",
+                },
+                {
+                  name: "Abhirami Nandakumar",
+                  testimonial:
+                    "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
+                  rating: 5,
+                  avatar: null,
                 },
               ].map((testimonial, index) => (
                 <div
