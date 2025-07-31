@@ -50,10 +50,12 @@ h6 {
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
+  overflow-x: hidden;
 }
 
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Focus states */
@@ -294,6 +296,18 @@ body {
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Ensure testimonials container doesn't cause horizontal overflow */
+.testimonials-container {
+  overflow: hidden;
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .scrollbar-hide {

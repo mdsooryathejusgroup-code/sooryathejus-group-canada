@@ -269,24 +269,25 @@ export default function HomePage() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="container mx-auto">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
             <p className="text-lg text-gray-600">Trusted by businesses across Canada</p>
           </div>
+        </div>
 
-          {/* All Reviews - Auto-Scrollable Section */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex space-x-6 pb-4 animate-scroll" 
-              style={{ 
-                width: 'max-content',
-                animation: 'scroll 30s linear infinite'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-              onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
-            >
+        {/* All Reviews - Auto-Scrollable Section */}
+        <div className="testimonials-container">
+          <div 
+            className="flex space-x-6 pb-4 animate-scroll" 
+            style={{ 
+              width: 'max-content',
+              animation: 'scroll 50s linear infinite'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
+            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+          >
               {[
                 {
                   name: "Yadunath Poduval",
@@ -432,29 +433,30 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-6 bg-emerald-50 rounded-full px-8 py-4 border border-emerald-100">
-              <div className="flex items-center space-x-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 bg-emerald-100 rounded-full border-2 border-white flex items-center justify-center"
-                    >
-                      <Users className="w-4 h-4 text-emerald-600" />
-                    </div>
-                  ))}
+          <div className="container mx-auto px-6">
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center space-x-6 bg-emerald-50 rounded-full px-8 py-4 border border-emerald-100">
+                <div className="flex items-center space-x-2">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-8 bg-emerald-100 rounded-full border-2 border-white flex items-center justify-center"
+                      >
+                        <Users className="w-4 h-4 text-emerald-600" />
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-emerald-700 font-medium text-sm">500+ Happy Clients</span>
                 </div>
-                <span className="text-emerald-700 font-medium text-sm">500+ Happy Clients</span>
-              </div>
-              <div className="w-px h-6 bg-emerald-200"></div>
-              <div className="flex items-center space-x-2">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="text-emerald-700 font-medium text-sm">4.9/5 Average Rating</span>
+                <div className="w-px h-6 bg-emerald-200"></div>
+                <div className="flex items-center space-x-2">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span className="text-emerald-700 font-medium text-sm">4.9/5 Average Rating</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* CTA Section */}
