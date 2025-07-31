@@ -82,7 +82,7 @@ const [messageLength, setMessageLength] = useState(0);
 
 
       {/* Hero Section */}
-   <section className="pt-16 pb-24 px-6">
+   <section className="pt-16 mt-24 pb-24 px-6">
   <div className="container mx-auto text-center max-w-4xl">
     <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
       Get in touch with <span className="text-emerald-600">Our Experts</span>
@@ -230,7 +230,7 @@ const [messageLength, setMessageLength] = useState(0);
 
       {/* Map Section */}
       <section className="px-6 pb-16 pt-8">
-        <div className="mt-16">
+        <div className="mt-12">
           <h3 className="text-2xl font-bold mb-4 text-emerald-700 text-center">Our Office Location</h3>
           <p className="text-center text-gray-600 mb-6">Visit us at our head office. Find us on the map below:</p>
           <div className="w-full h-72 rounded-xl overflow-hidden border shadow-md">
