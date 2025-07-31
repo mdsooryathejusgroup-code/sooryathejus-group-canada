@@ -484,20 +484,21 @@ export default function HomePage() {
                 View Case Studies
               </Button>
             </div>
-            <div className="mt-8 flex items-center justify-center space-x-8 text-gray-400 text-sm">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>No long-term contracts</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>Free initial consultation</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>Proven results</span>
-              </div>
+          <div className="mt-8 flex flex-col space-y-4 text-gray-400 text-sm sm:flex-row sm:items-center sm:justify-center sm:space-x-8 sm:space-y-0">
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>No long-term contracts</span>
             </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>Free initial consultation</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>Proven results</span>
+            </div>
+          </div>
+
           </div>
         </div>
       </section>
