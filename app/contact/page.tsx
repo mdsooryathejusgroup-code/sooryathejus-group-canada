@@ -22,7 +22,7 @@ const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
+  phone: z.string().min(1, "Phone number is required"),
   service: z.string().min(1, "Please select a service"),
   message: z.string().min(1, "Message is required").max(500, "Message should not exceed 500 characters"),
 })
@@ -173,8 +173,9 @@ const [messageLength, setMessageLength] = useState(0);
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                     <Input type="tel" {...register("phone")} placeholder="+1 (416) 123-4567" />
+                    {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Service Interest *</label>
