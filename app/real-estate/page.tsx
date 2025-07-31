@@ -15,11 +15,162 @@ import {
   DollarSign,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+
+// Animated Market Price Component for Real Estate
+const AnimatedMarketPrice = ({ value, suffix }: { value: number, suffix: string }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    if (inView) {
+      const delayTimer = setTimeout(() => {
+        let startTime = Date.now();
+        const duration = 2500;
+
+        const updateCount = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          
+          if (suffix === "K") {
+            setCount(Math.floor(easeOutQuart * value));
+          } else {
+            setCount(Math.round((easeOutQuart * value) * 10) / 10);
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+      }, 300);
+
+      return () => clearTimeout(delayTimer);
+    }
+  }, [inView, value, suffix]);
+
+  const displayValue = suffix === "K" ? Math.floor(count) : count.toFixed(1);
+
+  return (
+    <div ref={ref} className="text-3xl font-bold text-emerald-600 mb-2 transform hover:scale-105 transition-transform duration-300">
+      ${displayValue}{suffix}
+    </div>
+  );
+};
+
+// Animated Percentage Component for Real Estate
+const AnimatedPercentage = ({ value }: { value: number }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    if (inView) {
+      const delayTimer = setTimeout(() => {
+        let startTime = Date.now();
+        const duration = 2500;
+
+        const updateCount = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          setCount(Math.round((easeOutQuart * value) * 10) / 10);
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+      }, 500);
+
+      return () => clearTimeout(delayTimer);
+    }
+  }, [inView, value]);
+
+  return (
+    <div ref={ref} className="text-emerald-600 font-medium mb-4 transform hover:scale-105 transition-transform duration-300">
+      {count.toFixed(1)}% YoY
+    </div>
+  );
+};
+
+// Animated Highlight Component for Real Estate
+const AnimatedHighlight = ({ text }: { text: string }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const extractNumber = (str: string) => {
+    const match = str.match(/(\d+(?:\.\d+)?)/);
+    return match ? parseFloat(match[1]) : 0;
+  };
+
+  const getPrefix = (str: string) => {
+    const match = str.match(/^([^0-9]*)/);
+    return match ? match[1] : "";
+  };
+
+  const getSuffix = (str: string) => {
+    const match = str.match(/\d+(?:\.\d+)?(.*)$/);
+    return match ? match[1] : "";
+  };
+
+  const [count, setCount] = useState(0);
+  const targetNumber = extractNumber(text);
+  const prefix = getPrefix(text);
+  const suffix = getSuffix(text);
+
+  useEffect(() => {
+    if (inView && targetNumber > 0) {
+      let startTime = Date.now();
+      const duration = 2000;
+
+      const updateCount = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        
+        setCount(Math.floor(easeOutCubic * targetNumber));
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    }
+  }, [inView, targetNumber]);
+
+  if (targetNumber === 0) {
+    return (
+      <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300">
+        {text}
+      </div>
+    );
+  }
+
+  return (
+    <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300">
+      {prefix}{count}{suffix}
+    </div>
+  );
+};
 
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import HeroSection from "@/components/heroSection"
-import CountUp from "react-countup"
 
 
 export default function RealEstatePage() {
@@ -114,9 +265,7 @@ export default function RealEstatePage() {
                     </div>
                   ))}
                 </div>
-                <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md">
-                  {service.highlight}
-                </div>
+                <AnimatedHighlight text={service.highlight} />
               </div>
             ))}
           </div>
@@ -155,22 +304,11 @@ export default function RealEstatePage() {
           description: "Calgary shows strong recovery with increasing demand and competitive pricing.",
         },
       ].map((market, index) => (
-        <div key={index} className="bg-gray-50 rounded-xl p-8 text-center">
+        <div key={index} className="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
           <h3 className="text-xl font-semibold text-gray-900 mb-2">{market.city} Market</h3>
 
-          <div className="text-3xl font-bold text-emerald-600 mb-2">
-            $
-            <CountUp
-              end={market.price}
-              decimals={market.suffix === "K" ? 0 : 1}
-              suffix={market.suffix}
-              duration={2}
-            />
-          </div>
-
-          <div className="text-emerald-600 font-medium mb-4">
-            <CountUp end={market.change} decimals={1} duration={2} />% YoY
-          </div>
+          <AnimatedMarketPrice value={market.price} suffix={market.suffix} />
+          <AnimatedPercentage value={market.change} />
 
           <p className="text-gray-600 text-sm">{market.description}</p>
         </div>
