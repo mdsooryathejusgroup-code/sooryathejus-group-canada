@@ -8,6 +8,8 @@ import { Footer } from "react-day-picker"
 import HeaderSection from "@/components/header"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeroSection from "@/components/heroSection"
+import { useEffect, useState, useRef } from "react"
+import { useInView } from "react-intersection-observer"
 
 const getInitials = (name: string) => {
   return name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2);
@@ -20,6 +22,44 @@ const getAvatarColor = (name: string) => {
   ];
   const hash = name.split('').reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
   return colors[hash % colors.length];
+};
+
+// Animated Counter Component
+const AnimatedCounter = ({ end, prefix = "", suffix = "" }: { end: number, prefix?: string, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    if (inView) {
+      let startTime = Date.now();
+      const duration = 2000; // 2 seconds
+
+      const updateCount = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        
+        setCount(Math.floor(easeOutCubic * end));
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    }
+  }, [inView, end]);
+
+  return (
+    <div ref={ref} className="text-4xl font-bold text-white mb-2">
+      {prefix}{count}{suffix}
+    </div>
+  );
 };
 
 
@@ -181,13 +221,13 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { number: "500+", label: "Active Clients", sublabel: "Across Canada" },
-              { number: "98%", label: "Client Retention", sublabel: "Year over year" },
-              { number: "$50M+", label: "Revenue Generated", sublabel: "For our clients" },
-              { number: "15+", label: "Years Experience", sublabel: "In the market" },
+              { number: 500, prefix: "", suffix: "+", label: "Active Clients", sublabel: "Across Canada" },
+              { number: 98, prefix: "", suffix: "%", label: "Client Retention", sublabel: "Year over year" },
+              { number: 50, prefix: "$", suffix: "M+", label: "Revenue Generated", sublabel: "For our clients" },
+              { number: 15, prefix: "", suffix: "+", label: "Years Experience", sublabel: "In the market" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
+              <div key={index} className="text-center transform hover:scale-105 transition-transform duration-300">
+                <AnimatedCounter end={stat.number} prefix={stat.prefix} suffix={stat.suffix} />
                 <div className="text-emerald-100 font-medium mb-1">{stat.label}</div>
                 <div className="text-emerald-200 text-sm">{stat.sublabel}</div>
               </div>

@@ -13,12 +13,67 @@ import {
   TrendingUp,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
 
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import AnimatedSection from "@/components/AnimatedSection"
 import HeroSection from "@/components/heroSection"
 import  CountUp  from "react-countup"
+
+// Enhanced Animated Counter Component for Digital Marketing
+const DigitalMarketingCounter = ({ value, suffix = "", decimal = false }: { value: number, suffix?: string, decimal?: boolean }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  return (
+    <div ref={ref} className="text-4xl font-bold text-white mb-2 transform hover:scale-110 transition-transform duration-300">
+      {inView && (
+        <CountUp 
+          end={value} 
+          duration={2.5} 
+          decimals={decimal ? 1 : 0}
+          suffix={suffix}
+          useEasing={true}
+        />
+      )}
+    </div>
+  );
+};
+
+// Animated Metric Component for Service Cards
+const AnimatedMetric = ({ text }: { text: string }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  return (
+    <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300">
+      {(() => {
+        const match = text.match(/([\d.]+)([^\d]*)/)
+        if (match && inView) {
+          const [, number, textSuffix] = match
+          return (
+            <>
+              <CountUp 
+                end={parseFloat(number)} 
+                duration={2.2} 
+                decimals={number.includes('.') ? 1 : 0}
+                useEasing={true}
+              />
+              {textSuffix}
+            </>
+          )
+        }
+        return inView ? text : text.replace(/[\d.]+/, '0')
+      })()}
+    </div>
+  );
+};
 
 export default function DigitalMarketingPage() {
   return (
@@ -105,21 +160,7 @@ export default function DigitalMarketingPage() {
                     </div>
                   ))}
                 </div>
-                <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md">
-                  {(() => {
-                    const match = service.metric.match(/([\d.]+)([^\d]*)/)
-                    if (match) {
-                      const [, number, text] = match
-                      return (
-                        <>
-                          <CountUp end={parseFloat(number)} duration={2} decimals={number.includes('.') ? 1 : 0} />
-                          {text}
-                        </>
-                      )
-                    }
-                    return service.metric
-                  })()}
-                </div>
+                <AnimatedMetric text={service.metric} />
 
               </div>
             ))}
@@ -181,14 +222,18 @@ export default function DigitalMarketingPage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { number: "300%", label: "Average Traffic Growth" },
-              { number: "4.2x", label: "Return on Ad Spend" },
-              { number: "85%", label: "Lead Quality Improvement" },
-              { number: "45%", label: "Conversion Rate Boost" },
+              { value: 300, suffix: "%", label: "Average Traffic Growth" },
+              { value: 4.2, suffix: "x", label: "Return on Ad Spend", decimal: true },
+              { value: 85, suffix: "%", label: "Lead Quality Improvement" },
+              { value: 45, suffix: "%", label: "Conversion Rate Boost" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-emerald-100">{stat.label}</div>
+              <div key={index} className="text-center group">
+                <DigitalMarketingCounter 
+                  value={stat.value} 
+                  suffix={stat.suffix} 
+                  decimal={stat.decimal} 
+                />
+                <div className="text-emerald-100 group-hover:text-white transition-colors duration-300">{stat.label}</div>
               </div>
             ))}
           </div>
