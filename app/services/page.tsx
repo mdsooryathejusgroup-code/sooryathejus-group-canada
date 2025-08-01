@@ -65,14 +65,14 @@ const AnimatedHighlight = ({ text }: { text: string }) => {
 
   if (targetNumber === 0) {
     return (
-      <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300">
+      <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300 text-center sm:text-left">
         {text}
       </div>
     );
   }
 
   return (
-    <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300">
+    <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300 text-center sm:text-left">
       {prefix}{count}{suffix}
     </div>
   );
@@ -276,26 +276,28 @@ export default function ServicesPage() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group"
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group flex flex-col h-full"
               >
-              <div className="w-full h-60 rounded-lg mb-3 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+              <div className="w-full h-60 rounded-lg mb-6 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
               <img 
                 src={service.image} 
                 alt={service.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <div className="space-y-2 mb-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 min-h-[3.5rem] flex items-center">{service.title}</h3>
+                <p className="text-gray-600 mb-6 lg:mb-3 flex-grow min-h-[4.5rem] leading-relaxed">{service.description}</p>
+                <div className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
-                      <CheckCircle className="w-4 h-4 text-emerald-500" />
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                       <span className="text-sm text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <AnimatedHighlight text={service.highlight} />
+                <div className="mt-auto text-center sm:text-left">
+                  <AnimatedHighlight text={service.highlight} />
+                </div>
               </div>
             ))}
           </div>
@@ -400,10 +402,12 @@ export default function ServicesPage() {
                 metric: "95% client satisfaction",
               },
             ].map((benefit, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{benefit.title}</h3>
-                <p className="text-gray-600 mb-6">{benefit.description}</p>
-                <AnimatedHighlight text={benefit.metric} />
+              <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 flex flex-col h-full">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 min-h-[2rem] flex items-center justify-center">{benefit.title}</h3>
+                <p className="text-gray-600 mb-6 flex-grow min-h-[4rem] leading-relaxed">{benefit.description}</p>
+                <div className="mt-auto">
+                  <AnimatedHighlight text={benefit.metric} />
+                </div>
               </div>
             ))}
           </div>
