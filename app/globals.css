@@ -236,7 +236,8 @@ body {
   background-color: rgb(11 183 130) !important;
 }
 
-.bg-emerald-600:hover {
+a .bg-emerald-600:hover,
+button .bg-emerald-600:hover {
   --tw-gradient-to: #15803d var(--tw-gradient-to-position) !important;
   background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1)) !important;
 }
