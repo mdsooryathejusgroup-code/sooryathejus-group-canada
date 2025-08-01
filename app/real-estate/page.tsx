@@ -265,7 +265,9 @@ export default function RealEstatePage() {
                     </div>
                   ))}
                 </div>
-                <AnimatedHighlight text={service.highlight} />
+                <div className="text-center sm:text-left">
+                  <AnimatedHighlight text={service.highlight} />
+                </div>
               </div>
             ))}
           </div>

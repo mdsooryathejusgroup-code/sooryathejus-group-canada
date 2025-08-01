@@ -145,23 +145,26 @@ export default function DigitalMarketingPage() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow md:text-left"
               >
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 md:mx-0">
                   <service.icon className="w-6 h-6 text-emerald-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-6">{service.description}</p>
                 <div className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
+                    <div key={idx} className="flex items-center space-x-3 md:justify-start">
                       <CheckCircle className="w-4 h-4 text-emerald-500" />
                       <span className="text-sm text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <AnimatedMetric text={service.metric} />
-
+                <div className="flex w-full items-center">
+                  <div className="bg-emerald-50 px-3 py-2 rounded-md text-sm font-medium text-emerald-600 w-full text-center sm:text-left h-10 flex items-center justify-center sm:justify-start transform hover:scale-105 transition-transform duration-300">
+                    <AnimatedMetric text={service.metric} />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
