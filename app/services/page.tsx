@@ -65,16 +65,16 @@ const AnimatedHighlight = ({ text }: { text: string }) => {
 
   if (targetNumber === 0) {
     return (
-      <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300 text-center sm:text-left">
+      <span ref={ref} className="text-sm font-medium text-emerald-600 text-center sm:text-left">
         {text}
-      </div>
+      </span>
     );
   }
 
   return (
-    <div ref={ref} className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md transform hover:scale-105 transition-transform duration-300 text-center sm:text-left">
+    <span ref={ref} className="text-sm font-medium text-emerald-600 text-center sm:text-left">
       {prefix}{count}{suffix}
-    </div>
+    </span>
   );
 };
 
@@ -295,8 +295,10 @@ export default function ServicesPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-auto text-center sm:text-left">
-                  <AnimatedHighlight text={service.highlight} />
+                <div className="mt-auto flex w-full">
+                  <div className="bg-emerald-50 px-3 py-2 rounded-md text-sm font-medium text-emerald-600 w-full text-center sm:text-left h-10 flex items-center justify-center sm:justify-start transform hover:scale-105 transition-transform duration-300">
+                    <AnimatedHighlight text={service.highlight} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -329,8 +331,8 @@ export default function ServicesPage() {
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{industry.title}</h3>
                 <p className="text-gray-600 text-sm mb-3">{industry.description}</p>
-                <div className="text-emerald-600 font-medium text-sm">
-                  <AnimatedHighlight text={industry.clients + " clients served"} />
+                <div className="text-emerald-600 font-medium text-sm text-center flex justify-center">
+                  <AnimatedHighlight text={`${industry.clients} clients served`} />
                 </div>
               </div>
             ))}
@@ -405,8 +407,10 @@ export default function ServicesPage() {
               <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 flex flex-col h-full">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 min-h-[2rem] flex items-center justify-center">{benefit.title}</h3>
                 <p className="text-gray-600 mb-6 flex-grow min-h-[4rem] leading-relaxed">{benefit.description}</p>
-                <div className="mt-auto">
-                  <AnimatedHighlight text={benefit.metric} />
+                <div className="mt-auto flex justify-center">
+                  <span className="bg-emerald-50 px-3 py-2 rounded-md inline-block">
+                    <AnimatedHighlight text={benefit.metric} />
+                  </span>
                 </div>
               </div>
             ))}
