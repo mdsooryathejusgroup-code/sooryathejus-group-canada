@@ -8,11 +8,76 @@ import {
   Target,
  } from "lucide-react"
 import FooterSection from "@/components/footer"
-
+import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeaderSection from "@/components/header"
 import HeroSection from "@/components/heroSection"
 import { useLoading } from "@/components/context/loading-context"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+
+// Animated Highlight Component for Services
+const AnimatedHighlight = ({ text }: { text: string }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const extractNumber = (str: string) => {
+    const match = str.match(/(\d+(?:\.\d+)?)/);
+    return match ? parseFloat(match[1]) : 0;
+  };
+
+  const getPrefix = (str: string) => {
+    const match = str.match(/^([^0-9]*)/);
+    return match ? match[1] : "";
+  };
+
+  const getSuffix = (str: string) => {
+    const match = str.match(/\d+(?:\.\d+)?(.*)$/);
+    return match ? match[1] : "";
+  };
+
+  const [count, setCount] = useState(0);
+  const targetNumber = extractNumber(text);
+  const prefix = getPrefix(text);
+  const suffix = getSuffix(text);
+
+  useEffect(() => {
+    if (inView && targetNumber > 0) {
+      let startTime = Date.now();
+      const duration = 2000;
+
+      const updateCount = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        
+        setCount(Math.floor(easeOutCubic * targetNumber));
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    }
+  }, [inView, targetNumber]);
+
+  if (targetNumber === 0) {
+    return (
+      <span ref={ref} className="text-sm font-medium text-emerald-600 text-center sm:text-left">
+        {text}
+      </span>
+    );
+  }
+
+  return (
+    <span ref={ref} className="text-sm font-medium text-emerald-600 text-center sm:text-left">
+      {prefix}{count}{suffix}
+    </span>
+  );
+};
+
 export default function ServicesPage() {
   const { startLoading, stopLoading } = useLoading()
   
@@ -211,27 +276,29 @@ export default function ServicesPage() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group"
+                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-emerald-200 transition-all duration-300 cursor-pointer group flex flex-col h-full"
               >
-              <div className="w-full h-60 rounded-lg mb-3 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+              <div className="w-full h-60 rounded-lg mb-6 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
               <img 
                 src={service.image} 
                 alt={service.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <div className="space-y-2 mb-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 min-h-[3.5rem] flex items-center">{service.title}</h3>
+                <p className="text-gray-600 mb-6 lg:mb-3 flex-grow min-h-[4.5rem] leading-relaxed">{service.description}</p>
+                <div className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center space-x-3">
-                      <CheckCircle className="w-4 h-4 text-emerald-500" />
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                       <span className="text-sm text-gray-700">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md">
-                  {service.highlight}
+                <div className="mt-auto flex w-full">
+                  <div className="bg-emerald-50 px-3 py-2 rounded-md text-sm font-medium text-emerald-600 w-full text-center sm:text-left h-10 flex items-center justify-center sm:justify-start transform hover:scale-105 transition-transform duration-300">
+                    <AnimatedHighlight text={service.highlight} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -264,7 +331,9 @@ export default function ServicesPage() {
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{industry.title}</h3>
                 <p className="text-gray-600 text-sm mb-3">{industry.description}</p>
-                <div className="text-emerald-600 font-medium text-sm">{industry.clients} clients served</div>
+                <div className="text-emerald-600 font-medium text-sm text-center flex justify-center">
+                  <AnimatedHighlight text={`${industry.clients} clients served`} />
+                </div>
               </div>
             ))}
           </div>
@@ -335,11 +404,13 @@ export default function ServicesPage() {
                 metric: "95% client satisfaction",
               },
             ].map((benefit, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{benefit.title}</h3>
-                <p className="text-gray-600 mb-6">{benefit.description}</p>
-                <div className="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-2 rounded-md inline-block">
-                  {benefit.metric}
+              <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100 flex flex-col h-full">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 min-h-[2rem] flex items-center justify-center">{benefit.title}</h3>
+                <p className="text-gray-600 mb-6 flex-grow min-h-[4rem] leading-relaxed">{benefit.description}</p>
+                <div className="mt-auto flex justify-center">
+                  <span className="bg-emerald-50 px-3 py-2 rounded-md inline-block">
+                    <AnimatedHighlight text={benefit.metric} />
+                  </span>
                 </div>
               </div>
             ))}

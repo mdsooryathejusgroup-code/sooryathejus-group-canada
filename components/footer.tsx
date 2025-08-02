@@ -14,7 +14,6 @@ export default function FooterSection() {
       <div>
         <div className="flex items-center space-x-2 mb-4">
                 <img src="/logo.png" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-                <span className="font-semibold text-gray-900">Sooryathejus Group</span>
           
         </div>
         <p className="text-gray-600 text-sm mb-4">
@@ -58,12 +57,12 @@ export default function FooterSection() {
             <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link href="/" className="hover:text-emerald-600 transition-colors">
+                <Link href="/terms-and-conditions" className="hover:text-emerald-600 transition-colors">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:text-emerald-600 transition-colors">
+                <Link href="/privacy-policy" className="hover:text-emerald-600 transition-colors">
                   Privacy Policy
                 </Link>
               </li>

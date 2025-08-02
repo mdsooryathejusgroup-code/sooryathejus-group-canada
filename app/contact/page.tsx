@@ -22,9 +22,9 @@ const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
+  phone: z.string().min(1, "Phone number is required"),
   service: z.string().min(1, "Please select a service"),
-  message: z.string().min(10, "Message should be at least 10 characters"),
+  message: z.string().min(1, "Message is required").max(500, "Message should not exceed 500 characters"),
 })
 
 
@@ -41,6 +41,7 @@ export default function ContactPage() {
     resolver: zodResolver(formSchema),
   })
 const [loading, setLoading] = useState(false);
+const [messageLength, setMessageLength] = useState(0);
 
   const onSubmit = async (data: FormData) => {
   setLoading(true);
@@ -81,7 +82,7 @@ const [loading, setLoading] = useState(false);
 
 
       {/* Hero Section */}
-   <section className="pt-16 pb-24 px-6">
+   <section className="pt-16 mt-24 pb-24 px-6">
   <div className="container mx-auto text-center max-w-4xl">
     <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
       Get in touch with <span className="text-emerald-600">Our Experts</span>
@@ -172,8 +173,9 @@ const [loading, setLoading] = useState(false);
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                     <Input type="tel" {...register("phone")} placeholder="+1 (416) 123-4567" />
+                    {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Service Interest *</label>
@@ -192,8 +194,22 @@ const [loading, setLoading] = useState(false);
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                  <Textarea rows={4} {...register("message")} placeholder="Tell us about your project..." />
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="block text-sm font-medium text-gray-700">Message *</label>
+                    <span className={`text-xs ${messageLength > 500 ? 'text-red-500' : 'text-gray-500'}`}>
+                      {messageLength}/500
+                    </span>
+                  </div>
+                  <Textarea 
+                    rows={4} 
+                    {...register("message")} 
+                    placeholder="Tell us about your project..." 
+                    maxLength={500}
+                    onChange={(e) => {
+                      setMessageLength(e.target.value.length);
+                      register("message").onChange(e);
+                    }}
+                  />
                   {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>}
                 </div>
 
@@ -214,7 +230,7 @@ const [loading, setLoading] = useState(false);
 
       {/* Map Section */}
       <section className="px-6 pb-16 pt-8">
-        <div className="mt-16">
+        <div className="mt-12">
           <h3 className="text-2xl font-bold mb-4 text-emerald-700 text-center">Our Office Location</h3>
           <p className="text-center text-gray-600 mb-6">Visit us at our head office. Find us on the map below:</p>
           <div className="w-full h-72 rounded-xl overflow-hidden border shadow-md">

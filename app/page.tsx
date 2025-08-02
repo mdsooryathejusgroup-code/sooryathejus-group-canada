@@ -8,6 +8,8 @@ import { Footer } from "react-day-picker"
 import HeaderSection from "@/components/header"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
 import HeroSection from "@/components/heroSection"
+import { useEffect, useState, useRef } from "react"
+import { useInView } from "react-intersection-observer"
 
 const getInitials = (name: string) => {
   return name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2);
@@ -22,45 +24,51 @@ const getAvatarColor = (name: string) => {
   return colors[hash % colors.length];
 };
 
+// Animated Counter Component
+const AnimatedCounter = ({ end, prefix = "", suffix = "" }: { end: number, prefix?: string, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    if (inView) {
+      let startTime = Date.now();
+      const duration = 2000; // 2 seconds
+
+      const updateCount = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        
+        setCount(Math.floor(easeOutCubic * end));
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    }
+  }, [inView, end]);
+
+  return (
+    <div ref={ref} className="text-4xl font-bold text-white mb-2">
+      {prefix}{count}{suffix}
+    </div>
+  );
+};
+
 
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3 group">
-              <img src="/logo.jpg" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-              <span className="text-xl font-semibold text-gray-900">Sooryathejus Group</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-emerald-600 font-medium text-sm">
-                Home
-              </Link>
-              <Link
-                href="/digital-marketing"
-                className="text-gray-600 hover:text-emerald-600 transition-colors text-sm"
-              >
-                Digital Marketing
-              </Link>
-              <Link href="/real-estate" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Real Estate
-              </Link>
-              <Link href="/services" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Services
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-emerald-600 transition-colors text-sm">
-                Contact
-              </Link>
-            </div>
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm px-6 py-2 rounded-md">
-              Get Started
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <HeaderSection />
 
       {/* Hero Section */}
       <HeroSection
@@ -182,13 +190,13 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { number: "500+", label: "Active Clients", sublabel: "Across Canada" },
-              { number: "98%", label: "Client Retention", sublabel: "Year over year" },
-              { number: "$50M+", label: "Revenue Generated", sublabel: "For our clients" },
-              { number: "15+", label: "Years Experience", sublabel: "In the market" },
+              { number: 500, prefix: "", suffix: "+", label: "Active Clients", sublabel: "Across Canada" },
+              { number: 98, prefix: "", suffix: "%", label: "Client Retention", sublabel: "Year over year" },
+              { number: 50, prefix: "$", suffix: "M+", label: "Revenue Generated", sublabel: "For our clients" },
+              { number: 15, prefix: "", suffix: "+", label: "Years Experience", sublabel: "In the market" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
+              <div key={index} className="text-center transform hover:scale-105 transition-transform duration-300">
+                <AnimatedCounter end={stat.number} prefix={stat.prefix} suffix={stat.suffix} />
                 <div className="text-emerald-100 font-medium mb-1">{stat.label}</div>
                 <div className="text-emerald-200 text-sm">{stat.sublabel}</div>
               </div>
@@ -261,16 +269,25 @@ export default function HomePage() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-16 md:py-24 px-6 bg-white">
-        <div className="container mx-auto">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
             <p className="text-lg text-gray-600">Trusted by businesses across Canada</p>
           </div>
+        </div>
 
-          {/* All Reviews - Scrollable Section */}
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex space-x-6 pb-4" style={{ width: 'max-content' }}>
+        {/* All Reviews - Auto-Scrollable Section */}
+        <div className="testimonials-container">
+          <div 
+            className="flex space-x-6 pb-4 animate-scroll" 
+            style={{ 
+              width: 'max-content',
+              animation: 'scroll 50s linear infinite'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
+            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
+          >
               {[
                 {
                   name: "Yadunath Poduval",
@@ -323,6 +340,35 @@ export default function HomePage() {
                   name: "vaisagh kodur",
                   rating: 5,
                   avatar: "/users/vaisagh.png",
+                },
+                // Duplicate testimonials for seamless loop
+                {
+                  name: "Yadunath Poduval",
+                  testimonial:
+                    "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
+                  rating: 5,
+                  avatar: null,
+                },
+                {
+                  name: "Anjali s Krishna",
+                  testimonial:
+                    "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
+                  rating: 5,
+                  avatar: "/users/anjali.png",
+                },
+                {
+                  name: "Edwin Johnson",
+                  testimonial:
+                    "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
+                  rating: 5,
+                  avatar: "/users/edwin.png",
+                },
+                {
+                  name: "Abhirami Nandakumar",
+                  testimonial:
+                    "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
+                  rating: 5,
+                  avatar: null,
                 },
               ].map((testimonial, index) => (
                 <div
@@ -387,29 +433,30 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-6 bg-emerald-50 rounded-full px-8 py-4 border border-emerald-100">
-              <div className="flex items-center space-x-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 bg-emerald-100 rounded-full border-2 border-white flex items-center justify-center"
-                    >
-                      <Users className="w-4 h-4 text-emerald-600" />
-                    </div>
-                  ))}
+          <div className="container mx-auto px-6">
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center space-x-6 bg-emerald-50 rounded-full px-8 py-4 border border-emerald-100">
+                <div className="flex items-center space-x-2">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-8 bg-emerald-100 rounded-full border-2 border-white flex items-center justify-center"
+                      >
+                        <Users className="w-4 h-4 text-emerald-600" />
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-emerald-700 font-medium text-sm">500+ Happy Clients</span>
                 </div>
-                <span className="text-emerald-700 font-medium text-sm">500+ Happy Clients</span>
-              </div>
-              <div className="w-px h-6 bg-emerald-200"></div>
-              <div className="flex items-center space-x-2">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="text-emerald-700 font-medium text-sm">4.9/5 Average Rating</span>
+                <div className="w-px h-6 bg-emerald-200"></div>
+                <div className="flex items-center space-x-2">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span className="text-emerald-700 font-medium text-sm">4.9/5 Average Rating</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* CTA Section */}
@@ -439,20 +486,21 @@ export default function HomePage() {
                 View Case Studies
               </Button>
             </div>
-            <div className="mt-8 flex items-center justify-center space-x-8 text-gray-400 text-sm">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>No long-term contracts</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>Free initial consultation</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>Proven results</span>
-              </div>
+          <div className="mt-8 flex flex-col space-y-4 text-gray-400 text-sm sm:flex-row sm:items-center sm:justify-center sm:space-x-8 sm:space-y-0">
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>No long-term contracts</span>
             </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>Free initial consultation</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
+              <span>Proven results</span>
+            </div>
+          </div>
+
           </div>
         </div>
       </section>

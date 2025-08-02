@@ -50,10 +50,12 @@ h6 {
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
+  overflow-x: hidden;
 }
 
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Focus states */
@@ -234,7 +236,8 @@ body {
   background-color: rgb(11 183 130) !important;
 }
 
-.bg-emerald-600:hover {
+a .bg-emerald-600:hover,
+button .bg-emerald-600:hover {
   --tw-gradient-to: #15803d var(--tw-gradient-to-position) !important;
   background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1)) !important;
 }
@@ -280,4 +283,39 @@ body {
   to {
     opacity: 1;
   }
+}
+
+/* Auto-scroll animation for testimonials */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Ensure testimonials container doesn't cause horizontal overflow */
+.testimonials-container {
+  overflow: hidden;
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
