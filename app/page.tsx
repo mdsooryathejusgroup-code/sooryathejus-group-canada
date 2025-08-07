@@ -565,11 +565,15 @@ export default function HomePage() {
                 },
                 {
                   name: "Sanchita Bose",
+                  testimonial:
+                    "Very professional and responsive team. They delivered exactly what we needed on time.",
                   rating: 5,
                   avatar: null,
                 },
                 {
                   name: "vaisagh kodur",
+                  testimonial:
+                    "Great service and support. Highly recommend their expertise and reliability.",
                   rating: 5,
                   avatar: "/users/vaisagh.png",
                 },
