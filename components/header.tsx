@@ -12,9 +12,9 @@ export default function HeaderSection() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Real Estate", path: "/real-estate" },
     { name: "Digital Marketing", path: "/digital-marketing" },
+    { name: "Services", path: "/services" },
+    { name: "Real Estate", path: "/real-estate" },    
     { name: "Contact", path: "/contact" },
   ]
 
