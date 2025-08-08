@@ -40,15 +40,15 @@ export default function FooterSection() {
                 </Link>
               </li>
               <li>
-                <Link href="/real-estate" className="hover:text-emerald-600 transition-colors">
-                  Real Estate
-                </Link>
-              </li>
-              <li>
                 <Link href="/services" className="hover:text-emerald-600 transition-colors">
                   Business Services
                 </Link>
               </li>
+              <li>
+                <Link href="/real-estate" className="hover:text-emerald-600 transition-colors">
+                  Real Estate
+                </Link>
+              </li>              
             </ul>
           </div>
 

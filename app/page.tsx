@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import FooterSection from "@/components/footer"
-import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe } from "lucide-react"
+import { ArrowRight, Building2, TrendingUp, Phone, Users, CheckCircle, Star, Globe, Smartphone, Palette, Search, Target, Instagram, Facebook } from "lucide-react"
 import { Footer } from "react-day-picker"
 import HeaderSection from "@/components/header"
 import WhatsAppFloatingButton from "@/components/whatsapp-floating"
@@ -124,19 +124,18 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Feature 2 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
-              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <Building2 className="w-6 h-6 text-emerald-600 group-hover:scale-110 transition-transform duration-300" />
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Users className="w-6 h-6 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">
-                Real Estate Expertise
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                Client-Focused Approach
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Comprehensive real estate solutions backed by deep market knowledge and professional service.
+                Personalized service and dedicated support to ensure your success is our top priority.
               </p>
               <div className="space-y-3">
-                {["Residential Sales", "Commercial Properties", "Investment Consulting", "Property Management"].map(
+                {["Dedicated Account Manager", "24/7 Support", "Custom Solutions", "Regular Reporting"].map(
                   (item, idx) => (
                     <div
                       key={idx}
@@ -151,19 +150,252 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Feature 3 */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <Users className="w-6 h-6 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Smartphone className="w-6 h-6 text-orange-600 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
-                Client-Focused Approach
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                Mobile App Development
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Personalized service and dedicated support to ensure your success is our top priority.
+                Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.
               </p>
               <div className="space-y-3">
-                {["Dedicated Account Manager", "24/7 Support", "Custom Solutions", "Regular Reporting"].map(
+                {["iOS App Development", "Android App Development", "React Native Apps", "App Store Optimization"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Globe className="w-6 h-6 text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-cyan-600 transition-colors duration-300">
+                Web Development
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Modern, responsive websites built with cutting-edge technologies to enhance your online presence.
+              </p>
+              <div className="space-y-3">
+                {["Custom Website Development", "E-commerce Platforms", "CMS Development", "Website Maintenance"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Palette className="w-6 h-6 text-pink-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-pink-600 transition-colors duration-300">
+                UI/UX Design
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                User-centered design solutions that create intuitive and engaging digital experiences for your customers.
+              </p>
+              <div className="space-y-3">
+                {["User Interface Design", "User Experience Research", "Wireframing & Prototyping", "Design Systems"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Search className="w-6 h-6 text-green-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-green-600 transition-colors duration-300">
+                SEO Services
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Comprehensive search engine optimization strategies to boost your website's visibility and organic traffic.
+              </p>
+              <div className="space-y-3">
+                {["Technical SEO Audit", "Keyword Research", "On-Page Optimization", "Link Building"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Star className="w-6 h-6 text-yellow-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
+                Logo Design & Branding
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Professional brand identity solutions that capture your company's essence and create lasting impressions.
+              </p>
+              <div className="space-y-3">
+                {["Custom Logo Design", "Brand Identity Design", "Business Card Design", "Brand Guidelines"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Target className="w-6 h-6 text-red-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-red-600 transition-colors duration-300">
+                Content Creation
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Engaging content strategies that tell your brand story and connect with your target audience effectively.
+              </p>
+              <div className="space-y-3">
+                {["Blog Writing", "Social Media Content", "Video Content", "Marketing Copy"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Facebook className="w-6 h-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                Meta Ads (Facebook)
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Strategic Facebook advertising campaigns designed to maximize reach, engagement, and conversions.
+              </p>
+              <div className="space-y-3">
+                {["Facebook Ad Campaigns", "Audience Targeting", "A/B Testing", "Performance Analytics"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Instagram className="w-6 h-6 text-purple-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                Instagram Ads
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Visual storytelling through Instagram advertising to build brand awareness and drive meaningful engagement.
+              </p>
+              <div className="space-y-3">
+                {["Instagram Story Ads", "Feed Advertising", "Reels Promotion", "Influencer Collaborations"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Palette className="w-6 h-6 text-indigo-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-indigo-600 transition-colors duration-300">
+                Graphic Design Services
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Creative visual solutions that communicate your brand message effectively across all marketing materials.
+              </p>
+              <div className="space-y-3">
+                {["Print Design", "Digital Graphics", "Marketing Materials", "Social Media Graphics"].map(
+                  (item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ),
+                )}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 group">
+              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Building2 className="w-6 h-6 text-emerald-600 group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">
+                Real Estate Expertise
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Comprehensive real estate solutions backed by deep market knowledge and professional service.
+              </p>
+              <div className="space-y-3">
+                {["Residential Sales", "Commercial Properties", "Investment Consulting", "Property Management"].map(
                   (item, idx) => (
                     <div
                       key={idx}
@@ -333,11 +565,15 @@ export default function HomePage() {
                 },
                 {
                   name: "Sanchita Bose",
+                  testimonial:
+                    "Very professional and responsive team. They delivered exactly what we needed on time.",
                   rating: 5,
                   avatar: null,
                 },
                 {
                   name: "vaisagh kodur",
+                  testimonial:
+                    "Great service and support. Highly recommend their expertise and reliability.",
                   rating: 5,
                   avatar: "/users/vaisagh.png",
                 },
