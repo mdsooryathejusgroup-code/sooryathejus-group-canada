@@ -11,6 +11,13 @@ import {
   Globe,
   CheckCircle,
   TrendingUp,
+  Smartphone,
+  Palette,
+  Star,
+  Instagram,
+  Facebook,
+  FileText,
+  Monitor,
 } from "lucide-react"
 import FooterSection from "@/components/footer"
 import { useEffect, useState } from "react"
@@ -129,7 +136,7 @@ export default function DigitalMarketingPage() {
                 metric: "Real-time insights",
               },
               {
-                icon: Globe,
+                icon: FileText,
                 title: "Content Marketing",
                 description: "Engage your audience with compelling content that drives action and builds trust.",
                 features: ["Blog Writing", "Video Content", "Email Marketing", "Content Strategy"],
@@ -141,6 +148,69 @@ export default function DigitalMarketingPage() {
                 description: "Turn more visitors into customers with optimized landing pages and funnels.",
                 features: ["A/B Testing", "Landing Pages", "User Experience", "Conversion Tracking"],
                 metric: "45% conversion rate boost",
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile App Development",
+                description: "Create powerful mobile applications that engage users and drive business growth.",
+                features: ["iOS Development", "Android Development", "React Native", "App Store Optimization"],
+                metric: "95% user retention rate",
+              },
+              {
+                icon: Monitor,
+                title: "Web Development",
+                description: "Build responsive, high-performance websites that convert visitors into customers.",
+                features: ["Custom Websites", "E-commerce Platforms", "CMS Integration", "Performance Optimization"],
+                metric: "50% faster load times",
+              },
+              {
+                icon: Palette,
+                title: "UI/UX Design",
+                description: "Design intuitive user experiences that delight customers and improve conversions.",
+                features: ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
+                metric: "60% UX improvement",
+              },
+              {
+                icon: Search,
+                title: "Advanced SEO Services",
+                description: "Comprehensive SEO strategies to dominate search results and drive organic traffic.",
+                features: ["Technical SEO", "Content Optimization", "Link Building", "Local SEO"],
+                metric: "250% organic growth",
+              },
+              {
+                icon: Star,
+                title: "Logo Design & Branding",
+                description: "Create memorable brand identities that resonate with your target audience.",
+                features: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy"],
+                metric: "80% brand recognition boost",
+              },
+              {
+                icon: Globe,
+                title: "Strategic Content Creation",
+                description: "Develop compelling content strategies that engage audiences and drive conversions.",
+                features: ["Content Strategy", "Video Production", "Copywriting", "Editorial Calendar"],
+                metric: "200% content engagement",
+              },
+              {
+                icon: Facebook,
+                title: "Meta Ads (Facebook)",
+                description: "Leverage Facebook's powerful advertising platform to reach your ideal customers.",
+                features: ["Campaign Setup", "Audience Targeting", "Creative Development", "Performance Optimization"],
+                metric: "3.8x Facebook ROAS",
+              },
+              {
+                icon: Instagram,
+                title: "Instagram Ads",
+                description: "Create visually stunning Instagram campaigns that build brand awareness and drive sales.",
+                features: ["Story Ads", "Feed Campaigns", "Reels Advertising", "Influencer Integration"],
+                metric: "120% Instagram reach",
+              },
+              {
+                icon: Palette,
+                title: "Graphic Design Services",
+                description: "Professional graphic design that communicates your brand message effectively.",
+                features: ["Marketing Materials", "Digital Graphics", "Print Design", "Brand Collateral"],
+                metric: "90% design approval rate",
               },
             ].map((service, index) => (
               <div
