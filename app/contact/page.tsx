@@ -117,7 +117,7 @@ const [messageLength, setMessageLength] = useState(0);
               }, {
                 icon: Mail,
                 title: "Email Us",
-                details: "info@sooryathejusgroup.ca"
+                details: "mdsooryathejusgroup@gmail.com"
               }, {
                 icon: Clock,
                 title: "Business Hours",
@@ -174,7 +174,7 @@ const [messageLength, setMessageLength] = useState(0);
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                    <Input type="tel" {...register("phone")} placeholder="+1 (416) 123-4567" />
+                    <Input type="tel" {...register("phone")} placeholder="+1 (289) 374-4396" />
                     {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
                   </div>
                   <div>
