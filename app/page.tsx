@@ -522,91 +522,91 @@ export default function HomePage() {
           >
               {[
                 {
-                  name: "Yadunath Poduval",
-                  testimonial:
-                    "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
-                  rating: 5,
-                  avatar: null,
-                },
-                {
-                  name: "Anjali s Krishna",
-                  testimonial:
-                    "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
-                  rating: 5,
-                  avatar: "/users/anjali.png",
-                },
-                {
-                  name: "Edwin Johnson",
-                  testimonial:
-                    "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
-                  rating: 5,
-                  avatar: "/users/edwin.png",
-                },
-                {
-                  name: "Abhirami Nandakumar",
-                  testimonial:
-                    "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
-                  rating: 5,
-                  avatar: null,
-                },
-                {
-                  name: "Adhwaith Nandakumar",
-                  testimonial:
-                    "Best Real estate agency",
-                  rating: 5,
-                  avatar: "/users/Adhwaith.png",
-                },
-                {
-                  name: "Pragati Patil",
-                  testimonial:
-                    "Good service",
-                  rating: 5,
-                  avatar: null,
-                },
-                {
-                  name: "Sanchita Bose",
-                  testimonial:
-                    "Very professional and responsive team. They delivered exactly what we needed on time.",
-                  rating: 5,
-                  avatar: null,
-                },
-                {
-                  name: "vaisagh kodur",
-                  testimonial:
-                    "Great service and support. Highly recommend their expertise and reliability.",
-                  rating: 5,
-                  avatar: "/users/vaisagh.png",
-                },
-                // Duplicate testimonials for seamless loop
-                {
-                  name: "Yadunath Poduval",
-                  testimonial:
-                    "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
-                  rating: 5,
-                  avatar: null,
-                },
-                {
-                  name: "Anjali s Krishna",
-                  testimonial:
-                    "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
-                  rating: 5,
-                  avatar: "/users/anjali.png",
-                },
-                {
-                  name: "Edwin Johnson",
-                  testimonial:
-                    "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
-                  rating: 5,
-                  avatar: "/users/edwin.png",
-                },
-                {
-                  name: "Abhirami Nandakumar",
-                  testimonial:
-                    "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
-                  rating: 5,
-                  avatar: null,
-                },
-              ].map((testimonial, index) => (
+    name: "Yadunath Poduval",
+    testimonial:
+      "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
+    rating: 5,
+    avatar: null,
+  },
+  {
+    name: "Anjali s Krishna",
+    testimonial:
+      "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
+    rating: 5,
+    avatar: "/users/anjali.png",
+  },
+  {
+    name: "Edwin Johnson",
+    testimonial:
+      "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
+    rating: 5,
+    avatar: "/users/edwin.png",
+  },
+  {
+    name: "Abhirami Nandakumar",
+    testimonial:
+      "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
+    rating: 5,
+    avatar: null,
+  },
+  {
+    name: "Adhwaith Nandakumar",
+    testimonial:
+      "Best real estate agency I’ve worked with. They truly care about finding the right home for you.",
+    rating: 5,
+    avatar: "/users/Adhwaith.png",
+  },
+  {
+    name: "Pragati Patil",
+    testimonial:
+      "Good service and very reliable. I will definitely recommend them to others.",
+    rating: 5,
+    avatar: null,
+  },
+  {
+    name: "Sanchita Bose",
+    testimonial:
+      "Very professional and responsive team. They delivered exactly what we needed on time.",
+    rating: 5,
+    avatar: null,
+  },
+  {
+    name: "vaisagh kodur",
+    testimonial:
+      "Great service and support. Highly recommend their expertise and reliability.",
+    rating: 5,
+    avatar: "/users/vaisagh.png",
+  },
+  // Duplicate testimonials for seamless loop
+  {
+    name: "Yadunath Poduval",
+    testimonial:
+      "Exceptional website design expertise! Our new website not only looks great but also performs flawlessly across all devices.",
+    rating: 5,
+    avatar: null,
+  },
+  {
+    name: "Anjali s Krishna",
+    testimonial:
+      "Excellent website design services! They listened to our ideas and transformed them into a modern and functional website.",
+    rating: 5,
+    avatar: "/users/anjali.png",
+  },
+  {
+    name: "Edwin Johnson",
+    testimonial:
+      "Top-notch real estate agents! Knowledgeable, responsive, and dedicated to finding the perfect property for their clients.",
+    rating: 5,
+    avatar: "/users/edwin.png",
+  },
+  {
+    name: "Abhirami Nandakumar",
+    testimonial:
+      "Professional and creative marketing solutions! They helped boost our online presence and attract more clients.",
+    rating: 5,
+    avatar: null,
+  },
+].map((testimonial, index) => (
                 <div
                   key={index}
                   className="bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-500 border border-transparent hover:border-gray-200 group flex-shrink-0"
