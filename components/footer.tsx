@@ -11,19 +11,22 @@ export default function FooterSection() {
   <div className="container mx-auto">
     <div className="grid md:grid-cols-2 gap-8">
       {/* Left Section */}
-      <div>
-        <div className="flex items-center space-x-2 mb-4">
-                <img src="/logo.png" alt="Sooryathejus Group Logo" className="w-15 h-14 object-contain" />
-          
+      <div className="text-center lg:text-left">
+        <div className="flex flex-col items-center lg:items-start mb-4">
+          <img
+            src="/logo.png"
+            alt="Sooryathejus Group Logo"
+            className="w-15 h-14 object-contain"
+          />
         </div>
         <p className="text-gray-600 text-sm mb-4">
           Canada's trusted partner for digital marketing, real estate, and business solutions.
         </p>
-       <div className="text-sm text-gray-500 leading-7">
-        <p>Toronto, Ontario, Canada</p>
-        <p>info@sooryathejusgroup.ca</p>
-        <p>+1 (416) 123-4567</p>
-      </div>
+        <div className="text-sm text-gray-500 leading-7">
+          <p>Toronto, Ontario, Canada</p>
+          <p>info@sooryathejusgroup.ca</p>
+          <p>+1 (416) 123-4567</p>
+        </div>
 
       </div>
 
