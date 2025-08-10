@@ -70,8 +70,8 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-2xl font-semibold mt-8 mb-2">9. Contact Us</h2>
                 <p className="mb-2">Soorya Thejus Group</p>
                 <p className="mb-2">Toronto, Ontario, Canada</p>
-                <p className="mb-2">Email: <a href="mailto:info@sooryathejusgroup.ca" className="text-blue-600 underline">info@sooryathejusgroup.ca</a></p>
-                <p className="mb-4">Phone: <a href="tel:+14161234567" className="text-blue-600 underline">+1 (416) 123-4567</a></p>
+                <p className="mb-2">Email: <a href="mailto:mdsooryathejusgroup@gmail.com" className="text-blue-600 underline">mdsooryathejusgroup@gmail.com</a></p>
+                <p className="mb-4">Phone: <a href="tel:+14161234567" className="text-blue-600 underline">+1 (289) 374-4396</a></p>
             </div>
         </section>
 
