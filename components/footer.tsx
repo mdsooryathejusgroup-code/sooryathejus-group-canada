@@ -24,8 +24,8 @@ export default function FooterSection() {
         </p>
         <div className="text-sm text-gray-500 leading-7">
           <p>Toronto, Ontario, Canada</p>
-          <p>info@sooryathejusgroup.ca</p>
-          <p>+1 (416) 123-4567</p>
+          <p>mdsooryathejusgroup@gmail.com</p>
+          <p>+1 (289) 374-4396</p>
         </div>
 
       </div>
