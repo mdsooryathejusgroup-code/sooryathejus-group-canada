@@ -31,7 +31,7 @@ export default function HeaderSection() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Sooryathejus Group" className="h-10 w-auto" />
+            <img src="/logo.png" alt="Sooryathejus Group" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
