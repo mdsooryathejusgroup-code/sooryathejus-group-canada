@@ -1,33 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>http://www.sooryathejusgroup.com/</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/digital-marketing</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/services</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/real-estate</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/contact</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/terms-and-conditions</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/privacy-policy</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/services#services</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/real-estate#properties</loc>
-</url>
-<url>
-  <loc>http://www.sooryathejusgroup.com/tel:+14161234567</loc>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.sooryathejusgroup.com/</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/digital-marketing</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/services</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/real-estate</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/contact</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/terms-and-conditions</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.sooryathejusgroup.com/privacy-policy</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
