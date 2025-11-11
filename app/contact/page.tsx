@@ -113,7 +113,7 @@ const [messageLength, setMessageLength] = useState(0);
               }, {
                 icon: Phone,
                 title: "Call Us",
-                details: "+1 289-374-6421, +91 6475344396"
+                details: "+1 289-374-6421, +1 6475344396"
               }, {
                 icon: Mail,
                 title: "Email Us",
