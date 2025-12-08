@@ -113,11 +113,11 @@ const [messageLength, setMessageLength] = useState(0);
               }, {
                 icon: Phone,
                 title: "Call Us",
-                details: "+1 289-374-6421, +1 647-534-4396"
+                details: "+1 289-374-6421, +1 437-771-3330"
               }, {
                 icon: Mail,
                 title: "Email Us",
-                details: "mdsooryathejusgroup@gmail.com"
+                details: "mdsooryathejusgroup@gmail.com, info@sooryathejusgroup.com"
               }, {
                 icon: Clock,
                 title: "Business Hours",
