@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
             </div>
         </section>
 
-      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate and marketting services." />  
 
     <FooterSection />
      

@@ -246,7 +246,7 @@ const [messageLength, setMessageLength] = useState(0);
           </div>
         </div>
       </section>
-      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate and marketting services." />  
 
       {/* Footer */}
       <FooterSection />

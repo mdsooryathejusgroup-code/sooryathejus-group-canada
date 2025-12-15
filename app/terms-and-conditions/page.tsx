@@ -64,7 +64,7 @@ export default function TermsAndConditionPage() {
         <p className="mb-4">Phone: <a href="tel:+14161234567" className="text-blue-600 underline">+1 (289) 374-4396</a></p>
       </div>
     </section>
-      <WhatsAppFloatingButton message="Hello! I need assistance with real estate." />  
+      <WhatsAppFloatingButton message="Hello! I need assistance with real estate and marketting services." />  
 
                  <FooterSection />
      
