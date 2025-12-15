@@ -8,8 +8,8 @@ interface WhatsAppButtonProps {
 }
 
 const WhatsAppFloatingButton: React.FC<WhatsAppButtonProps> = ({
-  phone = "+16475344396",
-  message = "Hello! I need assistance.",
+  phone = "+14377713330",
+  message = "Hello! I need assistance for real estate and marketting services.",
 }) => {
   const encodedMessage = encodeURIComponent(message)
   const link = `https://wa.me/${phone}${message ? `?text=${encodedMessage}` : ""}`
