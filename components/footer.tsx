@@ -26,7 +26,7 @@ export default function FooterSection() {
           <p>90 Burnhamthorpe Rd W 14 th floor Suite :1412, Mississauga, ON L5B 3C3, Canada</p>
           <p>mdsooryathejusgroup@gmail.com</p>
           <p>info@sooryathejusgroup.com</p>
-          <p>+1 (289) 374-4396</p>
+          <p>+1 (289) 374-6421</p>
           <p>+1 (437) 771-3330</p>
         </div>
 
